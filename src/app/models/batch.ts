@@ -1,10 +1,9 @@
-export interface Batch {
+export class Batch {
   id: number;
   name: string;
-  associates: number[];
   location: string;
   skill: string;
-  trainerId: number;
+  trainerName: string;
   startDate: Date;
   endDate: Date;
 }

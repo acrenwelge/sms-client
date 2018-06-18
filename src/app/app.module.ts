@@ -15,11 +15,11 @@ import { MgrOverviewComponent } from './components/mgr-overview/mgr-overview.com
 import { MgrAssociateViewComponent } from './components/mgr-associate-view/mgr-associate-view.component';
 
 import { AssociateService } from './services/associate.service';
+import { AssociateRouteActivator } from './services/associate-route-activator.service';
 import { BatchService } from './services/batch.service';
 import { ClientService } from './services/client.service';
 import { TrainerService } from './services/trainer.service';
 
-import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { AttendanceReportComponent } from './components/attendance-report/attendance-report.component';
 import { StatusReportComponent } from './components/status-report/status-report.component';
@@ -29,6 +29,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { MgrManageAssociatesComponent } from './components/mgr-manage-associates/mgr-manage-associates.component';
 import { AddFormComponent } from './components/add-form/add-form.component';
 import { RemoveAlertComponent } from './components/remove-alert/remove-alert.component';
+import { Error404Component } from './components/error404/error404.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,6 @@ import { RemoveAlertComponent } from './components/remove-alert/remove-alert.com
     LoginComponent,
     MgrOverviewComponent,
     MgrAssociateViewComponent,
-    SidenavComponent,
     NavbarComponent,
     AttendanceReportComponent,
     StatusReportComponent,
@@ -45,7 +45,8 @@ import { RemoveAlertComponent } from './components/remove-alert/remove-alert.com
     FooterComponent,
     MgrManageAssociatesComponent,
     AddFormComponent,
-    RemoveAlertComponent
+    RemoveAlertComponent,
+    Error404Component
   ],
   imports: [
     BrowserModule,
@@ -56,12 +57,10 @@ import { RemoveAlertComponent } from './components/remove-alert/remove-alert.com
     HttpClientModule
   ],
   entryComponents: [
-    EditFormComponent,
-    AddFormComponent,
-    RemoveAlertComponent
   ],
   providers: [
     AssociateService,
+    AssociateRouteActivator,
     BatchService,
     TrainerService,
     ClientService

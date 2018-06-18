@@ -35,8 +35,7 @@ export class AddFormComponent implements OnInit {
 
   addAssociate() {
     let associate = this.associate;
-    associate.batchName = this.selectedBatch.name;
-    associate.trainerName = this.trainers[this.selectedBatch.trainerId+1];
+    associate.batch = this.selectedBatch;
     this.associateService.addNewAssociate(this.associate).subscribe((newAssociate: Associate) => {
       this.addNewAssociate.emit(newAssociate);
     });

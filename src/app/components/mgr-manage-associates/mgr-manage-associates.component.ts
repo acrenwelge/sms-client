@@ -1,8 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatRadioModule } from '@angular/material/radio';
-import { NavbarComponent } from '../navbar/navbar.component';
-import { FooterComponent } from '../footer/footer.component';
 import { AssociateService } from '../../services/associate.service';
 import { TrainerService } from '../../services/trainer.service';
 import { BatchService } from '../../services/batch.service';
@@ -19,7 +15,7 @@ export class MgrManageAssociatesComponent implements OnInit {
   associates: Associate[];
   selectedAssociates: Associate[] = []; // initialize to empty array
   trainers: any[] = [];
-  batches: any[] = [];
+  batches: Batch[] = [];
   clients: any[] = [];
   locations: string[] = ["Reston","USF","UTA","WVU"];
 
@@ -79,8 +75,9 @@ export class MgrManageAssociatesComponent implements OnInit {
     $("#remove-modal").modal('hide');
     for (let i = 0; i < this.associates.length; i++) {
       this.associates[i].selected = false;
-      this.associates.splice(i,1); // remove from selected array
+      this.associates.splice(i,1); // remove associates
     }
+    this.selectedAssociates = []; // empty selected
   }
 
   showFilters() {

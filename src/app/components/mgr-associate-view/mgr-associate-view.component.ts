@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
-import { FormsModule } from '@angular/forms';
 
 import { AssociateService } from '../../services/associate.service';
 import { Associate } from '../../models/associate';
@@ -13,7 +12,7 @@ import { Associate } from '../../models/associate';
 })
 export class MgrAssociateViewComponent implements OnInit {
 
-  public associate: Associate;
+  public associate: Associate = new Associate();
   public editingMode = false;
 
   // new associate properties
@@ -34,8 +33,8 @@ export class MgrAssociateViewComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    const id = +this.route.snapshot.paramMap.get('id');
-    this.associateService.getAssociate(id).subscribe(data => this.associate = data);
+    console.log('initiating mgr-associate-view...');
+    this.associate = this.route.snapshot.data['associate'];
   }
 
   toggleEditMode() {

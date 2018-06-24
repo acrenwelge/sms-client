@@ -1,4 +1,5 @@
 import * as bootstrap from "bootstrap";
+import { ChartsModule } from 'ng2-charts';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -30,6 +31,8 @@ import { MgrManageAssociatesComponent } from './components/mgr-manage-associates
 import { AddFormComponent } from './components/add-form/add-form.component';
 import { RemoveAlertComponent } from './components/remove-alert/remove-alert.component';
 import { Error404Component } from './components/error404/error404.component';
+import { AssociateTableComponent } from './components/associate-table/associate-table.component';
+import { ChartComponent } from './components/chart/chart.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +49,9 @@ import { Error404Component } from './components/error404/error404.component';
     MgrManageAssociatesComponent,
     AddFormComponent,
     RemoveAlertComponent,
-    Error404Component
+    Error404Component,
+    AssociateTableComponent,
+    ChartComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +59,8 @@ import { Error404Component } from './components/error404/error404.component';
     FormsModule,
     BrowserAnimationsModule,
     MaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    ChartsModule
   ],
   entryComponents: [
   ],

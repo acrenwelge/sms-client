@@ -1,0 +1,16 @@
+<p>
+  chart works!
+</p>
+
+<div style="display: block;">
+  <canvas baseChart
+    [datasets]="datasets"
+    [data]="data"
+    [labels]="labels"
+    [options]="options"
+    [legend]="legend"
+    [chartType]="type"
+    (chartHover)="chartHovered($event)"
+    (chartClick)="chartClicked($event)">
+  </canvas>
+</div>

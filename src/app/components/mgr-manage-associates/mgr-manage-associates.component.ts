@@ -52,13 +52,15 @@ export class MgrManageAssociatesComponent implements OnInit {
   }
 
   onAddAssociate(associate: Associate) {
-    $("#add-modal").modal('hide');
+    let temp: any = $("#add-modal");
+    temp.modal('hide');
     console.log(`Added ${associate.firstName} ${associate.lastName} as an associate`);
     this.associates.push(associate);
   }
 
   onAssociateUpdate() {
-    $("#edit-modal").modal('hide');
+    let temp: any = $("#edit-modal");
+    temp.modal('hide');
     // loop through associates to update
     for (let i = 0; i < this.selectedAssociates.length; i++) {
       let associate = this.selectedAssociates[i];
@@ -72,7 +74,8 @@ export class MgrManageAssociatesComponent implements OnInit {
   }
 
   onAssociateRemoval() {
-    $("#remove-modal").modal('hide');
+    let temp: any = $("#remove-modal");
+    temp.modal('hide');
     for (let i = 0; i < this.associates.length; i++) {
       this.associates[i].selected = false;
       this.associates.splice(i,1); // remove associates

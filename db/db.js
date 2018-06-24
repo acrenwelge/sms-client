@@ -69,7 +69,16 @@ module.exports = () => {
     });
   }
   // Create associates
-  let date = new Date();
+  function addDays(date, days) {
+    var result = new Date(date);
+    result.setDate(result.getDate() + days);
+    return result;
+  }
+  let date1 = new Date(); // today
+  let date2 = addDays(date1, 1); // tomorrow
+  let date3 = addDays(date1, 2); // 2 days from now
+  let date4 = addDays(date1, 3); // 3 days from now
+  let date5 = addDays(date1, 4); // 4 days from nowt
   for (let i = 0; i < totAssociates; i++) {
     data.associates.push({
       selected: false,
@@ -78,15 +87,15 @@ module.exports = () => {
       lastName: lastNames[Math.floor(i / firstNames.length)], // match every first name to every last name
       absent: Math.random() > 0.5 ? true : false, // randomly assign
       batch: data.batches[i % data.batches.length], // loop through batches
-      marketingStartDate: date,
-      stagingStartDate: date,
-      confirmationDate: date,
-      projectStartDate: date,
-      stagingEndDate: date,
+      marketingStartDate: date1,
+      stagingStartDate: date2,
+      confirmationDate: date3,
+      projectStartDate: date4,
+      stagingEndDate: date5,
       numberInterviews: i % 4,
       repanelCount: (i+1) % 5,
       clientName: clients[i % clients.length] // loop through clients
-    })
+    });
   }
   return data;
 }

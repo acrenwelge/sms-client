@@ -28,6 +28,18 @@
           <i class="far fa-file-pdf"></i> Download as PDF
         </button>
       </div>
+      <div *ngIf="this.associates">
+        <h3>Statistics</h3>
+        <ul>
+          <li><strong>Total absent today:&ensp;</strong>{{totalAbsent}}</li>
+          <li><strong>Total present today:&ensp;</strong>{{totalPresent}}</li>
+          <li><strong>Attendance today:&ensp;</strong>{{totalPresent / (totalAbsent + totalPresent) | percent:'2.1-1'}}</li>
+          <li><strong>Average time in staging:&ensp;</strong>{{avgDaysInStaging}} days</li>
+          <li><strong>Average time from marketing to confirmation:&ensp;</strong>{{avgDaysMkToConf}} days</li>
+          <li><strong>Average number of interviews:&ensp;</strong>{{avgInterviews | number:'1.1-2'}} interviews</li>
+          <li><strong>Average number of repanels:&ensp;</strong>{{avgRepanels | number:'1.1-2'}} repanels</li>
+        </ul>
+      </div>
       <p style="color: red">
         Graphs / stats would appear here. May remove "overview" header.
       </p>
@@ -37,6 +49,39 @@
         <li>Avg # of repanels (over time? or for each time period: month / quarter / year)</li>
         <li>Avg attendance (per week / month / quarter / year)</li>
       </ul>
+
+      <div>
+        <h4 style="color: red">TESTING</h4>
+        <app-associate-table></app-associate-table>
+      </div>
+
+      <div class="row">
+        <h4 style="color: red">TESTING</h4>
+        <div class="col-lg-6">
+          <app-chart
+            type="pie"
+            [data]="[totalAbsent,totalPresent]"
+            [labels]="['absent', 'present']"
+          ></app-chart>
+        </div>
+        <div class="col-lg-6">
+          <app-chart
+            type="bar"
+            [data]="[avgInterviews, avgRepanels]"
+            [labels]="['Avg # Interviews', 'Avg # Repanels']"
+            [legend]="false"
+            [options]="{scaleShowVerticalLines: false, responsive: true}"
+          ></app-chart>
+        </div>
+        <div class="col-lg-6">
+          <app-chart
+            type="bar"
+            [data]="[avgDaysInStaging, avgDaysMkToConf]"
+            [labels]="['Avg Days in Staging', 'Avg Days to Confirmation']"
+            [legend]="false"
+          ></app-chart>
+        </div>
+      </div>
 
       <h2>Associates</h2>
       <table class="table table-hover table-responsive table-sm">

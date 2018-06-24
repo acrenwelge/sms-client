@@ -7,12 +7,12 @@ export class Associate {
   lastName: string;
   absent: boolean;
   batch: Batch;
-  marketingStartDate: Date;
-  stagingStartDate: Date;
-  confirmationDate: Date;
-  projectStartDate: Date;
-  stagingEndDate: Date;
+  marketingStartDate?: Date;
+  stagingStartDate?: Date;
+  confirmationDate?: Date;
+  projectStartDate?: Date;
+  stagingEndDate?: Date;
   numberInterviews: number;
   repanelCount: number;
-  clientName: string;
+  clientName?: string;
 }

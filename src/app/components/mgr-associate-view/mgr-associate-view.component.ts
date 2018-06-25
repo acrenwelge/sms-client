@@ -13,6 +13,8 @@ import { Associate } from '../../models/associate';
 export class MgrAssociateViewComponent implements OnInit {
 
   public associate: Associate = new Associate();
+  public progressValue: number;
+  public progressText: string;
   public editingMode = false;
 
   // new associate properties
@@ -35,6 +37,54 @@ export class MgrAssociateViewComponent implements OnInit {
   ngOnInit() {
     console.log('initiating mgr-associate-view...');
     this.associate = this.route.snapshot.data['associate'];
+    this.progressValue = 50;
+    this.progressText = "in staging...";
+  }
+
+  /**
+   * Calculate the progress of an associate:
+   * - training (no marketing start date)
+   * - marketing (has marketing start date)
+   * - staging (has staging start date)
+   * - confirmed (has confirmation date)
+   * - left staging (staging end date is past)
+   * - on client project (client project start date is past)
+   * */
+  calcProgress() {
+    let now = new Date();
+    let msd = this.associate.marketingStartDate;
+    let ssd = this.associate.stagingStartDate;
+    let sed = this.associate.stagingEndDate;
+    let cd = this.associate.confirmationDate;
+    let psd = this.associate.projectStartDate;
+    if (!msd) { // no marketing start date
+      this.progressValue = 0;
+      this.progressText = 'still in training';
+    } else if (!!msd && !ssd) { // has marketing start date but no staging start date
+      this.progressValue = 100 / 6 * 1;
+      this.progressText = 'started marketing';
+    } else if (!!ssd && !sed) { // has staging start date but no staging end date
+      this.progressValue = 100 / 6 * 2;
+      this.progressText = 'in staging';
+    } else if (!!sed && !cd) { // has staging end date but no confirmation date
+      this.progressValue = 100 / 6 * 3;
+      this.progressText = 'in staging';
+    } else if (!!cd && !psd) { // has confirmation date but no project start date
+      this.progressValue = 100 / 6 * 4;
+      this.progressText = 'confirmed by client';
+      if (sed && now > sed) { // has staging end date and it has passed
+        this.progressValue = 100 / 6 * 5;
+        this.progressText += ' and left staging';
+      }
+    } else if (!!psd) { // has project start date
+      if (now > psd) { // start date passed
+        this.progressValue = 100;
+        this.progressText = "on client project";
+      } else if (now > sed) { // staging end date is passed
+        this.progressValue = 100 / 6 * 5;
+        this.progressText = "has client project start date and left staging";
+      }
+    }
   }
 
   toggleEditMode() {

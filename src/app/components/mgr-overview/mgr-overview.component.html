@@ -51,8 +51,15 @@
       </ul>
 
       <div>
+        <mat-spinner></mat-spinner>
+      </div>
+
+      <div *ngIf="associates">
         <h4 style="color: red">TESTING</h4>
-        <app-associate-table></app-associate-table>
+        <app-associate-table 
+          [associates]="associates"
+          [displayedColNames]="['name', 'attendance', 'batchName','startMarketing', 'startStaging', 'confirmation', 'projectStart', 'stagingEnd','interviews', 'repanels', 'client']"
+          ></app-associate-table>
       </div>
 
       <div class="row">

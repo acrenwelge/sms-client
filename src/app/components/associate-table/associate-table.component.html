@@ -1,3 +1,104 @@
-<p>
-  associate-table works!
-</p>
+<mat-form-field>
+  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+</mat-form-field>
+
+<div class="mat-elevation-z8">
+  <mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+    <!-- Checkbox column -->
+    <ng-container matColumnDef="select">
+      <th mat-header-cell *matHeaderCellDef>
+        <mat-checkbox (change)="$event ? masterToggle() : null"
+                      [checked]="selection.hasValue() && isAllSelected()"
+                      [indeterminate]="selection.hasValue() && !isAllSelected()">
+        </mat-checkbox>
+      </th>
+      <td mat-cell *matCellDef="let row">
+        <mat-checkbox (click)="$event.stopPropagation()"
+                      (change)="$event ? selection.toggle(row) : null"
+                      [checked]="selection.isSelected(row)">
+        </mat-checkbox>
+      </td>
+    </ng-container>
+
+    <!-- Id Column -->
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> No. </mat-header-cell>
+      <mat-cell *matCellDef="let assoc">{{assoc.id}}</mat-cell>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+      <mat-cell *matCellDef="let assoc"><a routerLink="/associates/{{assoc.id}}">{{assoc.firstName}} {{assoc.lastName}}</a></mat-cell>
+    </ng-container>
+  
+    <!-- Attendance Column -->
+    <ng-container matColumnDef="attendance">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Attendance </mat-header-cell>
+      <mat-cell *matCellDef="let assoc"> {{assoc.absent}} </mat-cell>
+    </ng-container>
+
+    <!-- Batch name column -->
+    <ng-container matColumnDef="batchName">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Batch Name </mat-header-cell>
+      <mat-cell *matCellDef="let assoc"> {{assoc.batch?.name}} </mat-cell>
+    </ng-container>
+
+    <!-- Start Marketing Column --> 
+    <ng-container matColumnDef="startMarketing">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Marketing Start </mat-header-cell>
+      <mat-cell *matCellDef="let assoc"> {{assoc.marketingStartDate | date:'shortDate'}} </mat-cell>
+    </ng-container>
+
+    <!-- Start Staging Column --> 
+    <ng-container matColumnDef="startStaging">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Staging Start </mat-header-cell>
+      <mat-cell *matCellDef="let assoc"> {{assoc.stagingStartDate | date:'shortDate'}} </mat-cell>
+    </ng-container>
+
+    <!-- Confirmation Date Column -->
+    <ng-container matColumnDef="confirmation">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Confirmation Date </mat-header-cell>
+      <mat-cell *matCellDef="let assoc"> {{assoc.confirmationDate | date:'shortDate'}} </mat-cell>
+    </ng-container>
+
+    <!-- Project Start Date Column -->
+    <ng-container matColumnDef="projectStart">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Project Start </mat-header-cell>
+      <mat-cell *matCellDef="let assoc"> {{assoc.projectStartDate | date:'shortDate'}} </mat-cell>
+    </ng-container>
+
+    <!-- Staging End Date Column -->
+    <ng-container matColumnDef="stagingEnd">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Staging End Date </mat-header-cell>
+      <mat-cell *matCellDef="let assoc"> {{assoc.stagingEndDate | date:'shortDate'}} </mat-cell>
+    </ng-container>
+
+    <!-- Interviews Column -->
+    <ng-container matColumnDef="interviews">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Interviews </mat-header-cell>
+      <mat-cell *matCellDef="let assoc"> {{assoc.numberInterviews}} </mat-cell>
+    </ng-container>
+
+    <!-- Repanels Column -->
+    <ng-container matColumnDef="repanels">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Repanels </mat-header-cell>
+      <mat-cell *matCellDef="let assoc"> {{assoc.repanelCount}} </mat-cell>
+    </ng-container>
+
+    <!-- Client Name Column -->
+    <ng-container matColumnDef="client">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Client Name </mat-header-cell>
+      <mat-cell *matCellDef="let assoc"> {{assoc.clientName}} </mat-cell>
+    </ng-container>
+    
+    <mat-header-row *matHeaderRowDef="displayedColNames"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColNames;"></mat-row>
+  </mat-table>
+
+  <mat-paginator
+    [pageSizeOptions]="[5, 10, 25, 100]"
+    [pageSize]="10"
+    [showFirstLastButtons]="true"
+  ></mat-paginator>
+</div>

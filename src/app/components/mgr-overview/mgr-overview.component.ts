@@ -9,12 +9,37 @@ import { Associate } from '../../models/associate';
 })
 export class MgrOverviewComponent implements OnInit {
   associates: Associate[];
+  timePeriod: string = 'today';
+  status: string;
   totalAbsent: number = 0;
   totalPresent: number = 0;
   avgDaysInStaging: number = 0;
   avgDaysMkToConf: number = 0;
+  avgDaysMkToProjStart: number = 0;
   avgInterviews: number = 0;
   avgRepanels: number = 0;
+
+  pieChartOpts = {
+    title: {
+      display: true,
+      text: 'Attendance'
+    }
+  }
+
+  attendanceLineChartOpts = {
+    title: {
+      display: true,
+      text: `Attendance Over Time: ${this.timePeriod}`
+    },
+    scales: {
+        yAxes: [{
+            ticks: {
+                suggestedMin: 0,
+                suggestedMax: 3
+            }
+        }]
+    }
+  }
 
   constructor(private associateService: AssociateService) { }
 
@@ -23,6 +48,14 @@ export class MgrOverviewComponent implements OnInit {
       this.associates = allAssociates;
       this.calcStatistics();
     });
+  }
+
+  timePeriodChange($event) {
+    let time = $event.value;
+    this.timePeriod = time;
+    switch (time) {
+      case 'today': console.log('today');
+    }
   }
 
   calcStatistics() {
@@ -40,18 +73,15 @@ export class MgrOverviewComponent implements OnInit {
     for (let i=0; i < totAssociates; i++) {
       let assoc: Associate = this.associates[i];
       if (assoc.absent) {this.totalAbsent++;} else {this.totalPresent++;}
-      // let start: Date = new Date(assoc.stagingStartDate);
-      // let end: Date = new Date(assoc.stagingEndDate) || new Date();
-      // let timeDiff = Math.abs(end.getTime() - start.getTime());
       totDaysInStaging += getDayDiff(assoc.stagingStartDate, assoc.stagingEndDate);
       totDaysMkToConf += getDayDiff(assoc.marketingStartDate, assoc.confirmationDate);
       totInts += assoc.numberInterviews;
       totRepanels += assoc.repanelCount;
     }
-    this.avgDaysInStaging = totDaysInStaging / totAssociates;
-    this.avgDaysMkToConf = totDaysMkToConf / totAssociates;
-    this.avgInterviews = totInts / totAssociates;
-    this.avgRepanels = totRepanels / totAssociates;
+    this.avgDaysInStaging = +(totDaysInStaging / totAssociates).toFixed(2);
+    this.avgDaysMkToConf = +(totDaysMkToConf / totAssociates).toFixed();
+    this.avgInterviews = +(totInts / totAssociates).toFixed();
+    this.avgRepanels = +(totRepanels / totAssociates).toFixed();
   }
 
 }

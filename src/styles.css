@@ -19,6 +19,10 @@ main {
   padding-top: 48px; /* Space for fixed navbar */
 }
 
+.mat-button-toggle-label {
+  margin-bottom: 0;
+}
+
 /* MUST HAVE THIS FOR DISPLAYING ANGULAR MATERIAL SELECT DROPDOWNS IN MODALS */
 .cdk-overlay-container,
 .cdk-overlay-container * {

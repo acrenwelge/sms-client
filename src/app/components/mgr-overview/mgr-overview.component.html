@@ -20,82 +20,80 @@
         </p>
         <div class="my-2">
           <mat-button-toggle-group value="today" (change)="timePeriodChange($event)">
-            <mat-button-toggle value="today">Today</mat-button-toggle>
-            <mat-button-toggle value="this week">This week</mat-button-toggle>
-            <mat-button-toggle value="this month">This month</mat-button-toggle>
-            <mat-button-toggle value="this quarter">This quarter</mat-button-toggle>
-            <mat-button-toggle value="this year">This year</mat-button-toggle>
+            <mat-button-toggle [value]="timePeriodOpts.today">Today</mat-button-toggle>
+            <mat-button-toggle [value]="timePeriodOpts.week">This week</mat-button-toggle>
+            <mat-button-toggle [value]="timePeriodOpts.month">This month</mat-button-toggle>
+            <mat-button-toggle [value]="timePeriodOpts.qtr">This quarter</mat-button-toggle>
+            <mat-button-toggle [value]="timePeriodOpts.yr">This year</mat-button-toggle>
           </mat-button-toggle-group>
         </div>
-        <h4>Attendance</h4>
+        <h4>Attendance <span class="badge badge-secondary">{{timePeriod | titlecase}}</span></h4>
         <div class="row">
           <div class="col-lg-4">
+            Total number of associates: {{filteredAssociates.length}}
             <ul>
-              <li><strong>Total absent {{timePeriod}}: </strong>{{totalAbsent}}</li>
-              <li><strong>Total present {{timePeriod}}: </strong>{{totalPresent}}</li>
-              <li><strong>Attendance {{timePeriod}}: </strong>{{totalPresent / (totalAbsent + totalPresent) | percent:'2.1-1'}}</li>
+              <li><strong>Total absent: </strong>{{stats?.totalAbsent}}</li>
+              <li><strong>Total present: </strong>{{stats?.totalPresent}}</li>
+              <li><strong>Attendance: </strong>{{stats?.totalPresent / (stats?.totalAbsent + stats?.totalPresent) | percent:'2.1-1'}}</li>
             </ul>
           </div>
           <div class="col-lg-4">
             <app-chart
               type="pie"
-              [data]="[totalAbsent,totalPresent]"
+              [data]="[stats?.totalAbsent, stats?.totalPresent]"
               [labels]="['absent', 'present']"
             ></app-chart>
           </div>
           <div class="col-lg-4" *ngIf="timePeriod != 'today'">
             <app-chart
               type="line"
-              [data]="[totalAbsent,totalPresent]"
+              [data]="[stats?.totalAbsent, stats?.totalPresent]"
               [labels]="['absent', 'present']"
               [options]="attendanceLineChartOpts"
             ></app-chart>
           </div>
         </div>
-        <h4>Time Spent Per Status</h4>
+        <h4>Time Spent Per Status For <span class="badge badge-secondary">{{timePeriod | titlecase}}</span></h4>
         <div class="row">
           <div class="col-lg-6">
             <ul>
-              <li><strong>Average time in staging: </strong>{{avgDaysInStaging}} days</li>
-              <li><strong>Average time from marketing to confirmation: </strong>{{avgDaysMkToConf}} days</li>
-              <li><strong>Average time from marketing to project start date (total time): </strong>{{avgDaysMkToProjStart}} days</li>
+              <li><strong>Average time in staging: </strong>{{stats?.avgDaysInStaging}} days</li>
+              <li><strong>Average time from marketing to confirmation: </strong>{{stats?.avgDaysMkToConf}} days</li>
+              <li><strong>Average time from marketing to project start date: </strong>{{stats?.avgDaysMkToProjStart}} days</li>
             </ul>        
           </div>
           <div class="col-lg-6">
             <app-chart
               type="bar"
-              [data]="[avgDaysInStaging, avgDaysMkToConf]"
+              [data]="[stats?.avgDaysInStaging, stats?.avgDaysMkToConf]"
               [labels]="['Avg Days in Staging', 'Avg Days to Confirmation']"
               [legend]="false"
+              [options]="barChartOpts"
             ></app-chart>
           </div>
         </div>
-        <h4>Interviews and Re-panels</h4>
+        <h4>Interviews and Re-panels For <span class="badge badge-secondary">{{timePeriod | titlecase}}</span></h4>
         <div class="row">
           <div class="col-lg-6">
             <ul>
-              <li><strong>Average number of interviews:&ensp;</strong>{{avgInterviews | number:'1.1-2'}} interviews</li>
-              <li><strong>Average number of repanels:&ensp;</strong>{{avgRepanels | number:'1.1-2'}} repanels</li>
+              <li><strong>Average number of interviews:&ensp;</strong>{{stats?.avgInterviews | number:'1.1-2'}} interviews</li>
+              <li><strong>Average number of repanels:&ensp;</strong>{{stats?.avgRepanels | number:'1.1-2'}} repanels</li>
+              <li><strong>Total confirmed associates:&ensp;</strong>
+                {{stats?.totalConfirmed | number:'1.1-2'}} associates ({{stats?.totalConfirmed / (stats?.totalAbsent + stats?.totalPresent) | percent:'2.1-1'}})
+              </li>
             </ul>        
           </div>
           <div class="col-lg-6">
             <app-chart
               type="bar"
-              [data]="[avgInterviews, avgRepanels]"
+              [data]="[stats?.avgInterviews, stats?.avgRepanels]"
               [labels]="['Avg # Interviews', 'Avg # Repanels']"
               [legend]="false"
-              [options]="{scaleShowVerticalLines: false, responsive: true}"
+              [options]="barChartOpts"
             ></app-chart>
           </div>
         </div>
       </div>
-
-      <ul>
-        <li>Avg time for each phase from marketing -> staging -> confirmation -> project start</li>
-        <li>Avg # of interviews (over time? or for each time period: month / quarter / year)</li>
-        <li>Avg # of repanels (over time? or for each time period: month / quarter / year)</li>
-        <li>Avg attendance (per week / month / quarter / year)</li>
-      </ul>
 
       <div class="row">
         <h2>Associates In Staging</h2>

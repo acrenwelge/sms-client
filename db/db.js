@@ -74,12 +74,15 @@ module.exports = () => {
     result.setDate(result.getDate() + days);
     return result;
   }
-  let date1 = new Date(); // today
-  let date2 = addDays(date1, 1); // tomorrow
-  let date3 = addDays(date1, 2); // 2 days from now
-  let date4 = addDays(date1, 3); // 3 days from now
-  let date5 = addDays(date1, 4); // 4 days from nowt
+  let today = new Date();
+  let beginningDate = addDays(today,-30); // begin about month back
   for (let i = 0; i < totAssociates; i++) {
+    let dateinterval = (i+1) % 5 + 1; // 5 day max interval
+    let date1 = addDays(beginningDate, i); // add i days to beginning date
+    let date2 = addDays(date1, dateinterval); // increment by the set interval
+    let date3 = addDays(date1, dateinterval*2);
+    let date4 = addDays(date1, dateinterval*3); 
+    let date5 = addDays(date1, dateinterval*4); 
     data.associates.push({
       selected: false,
       id: i+1,
@@ -87,8 +90,8 @@ module.exports = () => {
       lastName: lastNames[Math.floor(i / firstNames.length)], // match every first name to every last name
       absent: Math.random() > 0.5 ? true : false, // randomly assign
       batch: data.batches[i % data.batches.length], // loop through batches
-      marketingStartDate: date1,
-      stagingStartDate: date2,
+      marketingStartDate: date1, // every associate should start marketing a day later than the previous
+      stagingStartDate: date2, // each phase should take dateinterval number of days
       confirmationDate: date3,
       projectStartDate: date4,
       stagingEndDate: date5,

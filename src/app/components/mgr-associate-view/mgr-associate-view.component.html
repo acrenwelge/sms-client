@@ -1,6 +1,12 @@
 <div class="container">
   <div class="row">
     <main role="main" class="col-lg-12">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a routerLink="/manage">Associates</a></li>
+          <li class="breadcrumb-item active" aria-current="page">{{associate.firstName}} {{associate.lastName}}</li>
+        </ol>
+      </nav>
 
       <mat-card>
         <mat-card-title>{{associate.firstName}} {{associate.lastName}}</mat-card-title>

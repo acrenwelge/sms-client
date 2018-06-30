@@ -33,6 +33,8 @@ import { RemoveAlertComponent } from './components/remove-alert/remove-alert.com
 import { Error404Component } from './components/error404/error404.component';
 import { AssociateTableComponent } from './components/associate-table/associate-table.component';
 import { ChartComponent } from './components/chart/chart.component';
+import { AssociateFilterService } from './services/associate-filter.service';
+import { StatsService } from './services/stats.service';
 
 @NgModule({
   declarations: [
@@ -69,7 +71,9 @@ import { ChartComponent } from './components/chart/chart.component';
     AssociateRouteActivator,
     BatchService,
     TrainerService,
-    ClientService
+    ClientService,
+    AssociateFilterService,
+    StatsService
   ],
   bootstrap: [AppComponent]
 })

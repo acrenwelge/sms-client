@@ -16,6 +16,7 @@ export class AddFormComponent implements OnInit {
   associate: Associate;
   selectedBatch: Batch;
   selectedClient: any;
+  attendance: boolean;
 
   @Input() batches: Batch[];
   @Input() trainers: any;
@@ -35,6 +36,9 @@ export class AddFormComponent implements OnInit {
 
   addAssociate() {
     let associate = this.associate;
+    let now = new Date();
+    let dateString = `${now.getMonth()+1}/${now.getDate()}/${now.getFullYear()}`;
+    associate.attendance[dateString] = this.attendance;
     associate.batch = this.selectedBatch;
     this.associateService.addNewAssociate(this.associate).subscribe((newAssociate: Associate) => {
       this.addNewAssociate.emit(newAssociate);

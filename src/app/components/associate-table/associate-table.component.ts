@@ -10,6 +10,7 @@ import { Associate } from '../../models/associate';
   styleUrls: ['./associate-table.component.scss']
 })
 export class AssociateTableComponent implements OnInit {
+  todayDateString: string;
   @Input() associates: Associate[];
   @Input() displayedColNames;
 
@@ -25,6 +26,8 @@ export class AssociateTableComponent implements OnInit {
 
   constructor() { }
   ngOnInit() {
+    const now = new Date();
+    this.todayDateString = `${now.getMonth()+1}/${now.getDate()}/${now.getFullYear()}`;
     this.dataSource = new MatTableDataSource(this.associates);
   }
 

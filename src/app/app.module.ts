@@ -35,6 +35,7 @@ import { AssociateTableComponent } from './components/associate-table/associate-
 import { ChartComponent } from './components/chart/chart.component';
 import { AssociateFilterService } from './services/associate-filter.service';
 import { StatsService } from './services/stats.service';
+import { DateService } from './services/date.service';
 
 @NgModule({
   declarations: [
@@ -73,7 +74,8 @@ import { StatsService } from './services/stats.service';
     TrainerService,
     ClientService,
     AssociateFilterService,
-    StatsService
+    StatsService,
+    DateService
   ],
   bootstrap: [AppComponent]
 })

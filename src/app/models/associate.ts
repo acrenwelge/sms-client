@@ -5,7 +5,7 @@ export class Associate {
   id: number; // unique identifier - not shown in application
   firstName: string;
   lastName: string;
-  absent: boolean;
+  attendance: {[s: string]: boolean}; // the string represents the date, boolean represents attendace (true=present, false=absent)
   batch: Batch;
   marketingStartDate?: Date;
   stagingStartDate?: Date;

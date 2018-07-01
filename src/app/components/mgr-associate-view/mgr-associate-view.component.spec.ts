@@ -89,7 +89,8 @@ describe('MgrAssociateViewComponent', () => {
     });
 
     it('should change the associate data', () => {
-      expect(component.associate.absent).toBe(false);
+      let now = new Date(); let today = `${now.getMonth()+1}/${now.getDate()}/${now.getFullYear()}`;
+      expect(component.associate.attendance[today]).toBe(false);
       expect(component.associate.marketingStartDate).toEqual(now);
       expect(component.associate.clientName).toEqual('testClientName');
       expect(component.associate.numberInterviews).toEqual(3);

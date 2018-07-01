@@ -27,14 +27,17 @@
             <mat-button-toggle [value]="timePeriodOpts.yr">This year</mat-button-toggle>
           </mat-button-toggle-group>
         </div>
-        <h4>Attendance <span class="badge badge-secondary">{{timePeriod | titlecase}}</span></h4>
+        <h4>Attendance and Confirmation Status <span class="badge badge-secondary">{{timePeriod | titlecase}}</span></h4>
         <div class="row">
           <div class="col-lg-4">
-            Total number of associates: {{filteredAssociates.length}}
             <ul>
-              <li><strong>Total absent: </strong>{{stats?.totalAbsent}}</li>
-              <li><strong>Total present: </strong>{{stats?.totalPresent}}</li>
+              <li><strong>Total number of associates: </strong>{{filteredAssociates.length}}</li>
+              <li><strong>Total absences {{timePeriod}}: </strong>{{stats?.totalAbsent}}</li>
+              <li><strong>Total present {{timePeriod}}: </strong>{{stats?.totalPresent}}</li>
               <li><strong>Attendance: </strong>{{stats?.totalPresent / (stats?.totalAbsent + stats?.totalPresent) | percent:'2.1-1'}}</li>
+              <li><strong>Confirmed associates:&ensp;</strong>
+                {{stats?.totalConfirmed | number:'1.0'}} ({{stats?.totalConfirmed / filteredAssociates.length | percent:'2.1-1'}})
+              </li>
             </ul>
           </div>
           <div class="col-lg-4">
@@ -78,9 +81,6 @@
             <ul>
               <li><strong>Average number of interviews:&ensp;</strong>{{stats?.avgInterviews | number:'1.1-2'}} interviews</li>
               <li><strong>Average number of repanels:&ensp;</strong>{{stats?.avgRepanels | number:'1.1-2'}} repanels</li>
-              <li><strong>Total confirmed associates:&ensp;</strong>
-                {{stats?.totalConfirmed | number:'1.1-2'}} associates ({{stats?.totalConfirmed / (stats?.totalAbsent + stats?.totalPresent) | percent:'2.1-1'}})
-              </li>
             </ul>        
           </div>
           <div class="col-lg-6">
@@ -121,7 +121,7 @@
             <tr *ngFor="let associate of associates" [ngClass]="{'table-info': associate.selected}">
               <!-- <td><a routerLink="/associates/{{associate.id}}">{{associate.id}}</a></td> -->
               <td><a routerLink="/associates/{{associate.id}}">{{associate.firstName}} {{associate.lastName}}</a></td>
-              <td *ngIf="!associate.absent; else elseBlock"><span class="text-success">Present</span></td>
+              <td *ngIf="associate.attendance[todayDateString]; else elseBlock"><span class="text-success">Present</span></td>
               <ng-template #elseBlock>
                 <td><span class="text-danger">Absent</span></td>
               </ng-template>

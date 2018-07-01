@@ -35,7 +35,7 @@
     <!-- Attendance Column -->
     <ng-container matColumnDef="attendance">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Attendance </mat-header-cell>
-      <mat-cell *matCellDef="let assoc"> {{assoc.absent}} </mat-cell>
+      <mat-cell *matCellDef="let assoc"> {{assoc.attendance[todayDateString]}} </mat-cell>
     </ng-container>
 
     <!-- Batch name column -->

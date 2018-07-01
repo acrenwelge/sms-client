@@ -11,7 +11,7 @@ import { Associate } from '../../models/associate';
   styleUrls: ['./mgr-associate-view.component.css'],
 })
 export class MgrAssociateViewComponent implements OnInit {
-
+  public todayDateString: string;
   public associate: Associate = new Associate();
   public progressValue: number;
   public progressText: string;
@@ -35,7 +35,8 @@ export class MgrAssociateViewComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    console.log('initiating mgr-associate-view...');
+    const now = new Date();
+    this.todayDateString = `${now.getMonth()+1}/${now.getDate()}/${now.getFullYear()}`;
     this.associate = this.route.snapshot.data['associate'];
     this.progressValue = 50;
     this.progressText = "in staging...";
@@ -106,7 +107,8 @@ export class MgrAssociateViewComponent implements OnInit {
   }
 
   saveNewVariables() {
-    this.associate.absent = this.newAttendance;
+    let now = new Date(); let dateString = `${now.getMonth()+1}/${now.getDate()}/${now.getFullYear()}`;
+    this.associate.attendance[dateString] = this.newAttendance;
     this.associate.marketingStartDate = this.newMarketingStartDate;
     this.associate.stagingStartDate = this.newStagingStartDate;
     this.associate.stagingEndDate = this.newStagingEndDate;
@@ -118,7 +120,8 @@ export class MgrAssociateViewComponent implements OnInit {
   }
 
   resetNewVariables() {
-    this.newAttendance = this.associate.absent;
+    let now = new Date(); let dateString = `${now.getMonth()+1}/${now.getDate()}/${now.getFullYear()}`;
+    this.newAttendance[dateString] = this.associate.attendance;
     this.newMarketingStartDate = this.associate.marketingStartDate;
     this.newStagingStartDate = this.associate.stagingStartDate;
     this.newStagingEndDate = this.associate.stagingEndDate;

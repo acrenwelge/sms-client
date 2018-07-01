@@ -11,6 +11,7 @@ import { Stats } from '../../models/stats';
   styleUrls: ['./mgr-overview.component.css']
 })
 export class MgrOverviewComponent implements OnInit {
+  todayDateString: string;
   associates: Associate[];
   filteredAssociates: Associate[] = []; // init to empty array
   timePeriodOpts: {today: string, week: string, month: string, qtr: string, yr: string} = this.filterService.getTimePeriodOpts();
@@ -56,23 +57,20 @@ export class MgrOverviewComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    console.log(this.timePeriodOpts);
-    console.log(this.timePeriod);
+    const now = new Date(); 
+    this.todayDateString = `${now.getMonth()+1}/${now.getDate()}/${now.getFullYear()}`;
     this.associateService.getAssociatesInStaging().subscribe(allAssociates => {
       this.associates = allAssociates;
-      this.filteredAssociates = this.filterService.filterAssociates(this.associates,this.timePeriod);
-      this.stats = this.statsService.calcStatistics(this.filteredAssociates);
+      this.filteredAssociates = this.filterService.filterAssociates(this.associates, this.timePeriod);
+      this.stats = this.statsService.calcStatistics(this.filteredAssociates, this.timePeriod);
     });
   }
 
   timePeriodChange($event) {
     let time = $event.value;
-    console.log(time);
     this.timePeriod = time;
     this.filteredAssociates = this.filterService.filterAssociates(this.associates,this.timePeriod);
-    console.log(this.filteredAssociates);
-    this.stats = this.statsService.calcStatistics(this.filteredAssociates);
-    console.log(this.stats);
+    this.stats = this.statsService.calcStatistics(this.filteredAssociates, this.timePeriod);
   }
 
 }

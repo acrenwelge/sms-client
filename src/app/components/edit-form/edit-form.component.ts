@@ -26,7 +26,7 @@ export class EditFormComponent implements OnInit {
     for (let i=0;i<this.associates.length;i++) {
       let oldAssociate = this.associates[i];
       let newAssociate = oldAssociate;
-      newAssociate.absent = this.newAssociateData.absent;
+      newAssociate.attendance = this.newAssociateData.attendance;
       newAssociate.stagingStartDate = this.newAssociateData.stagingStartDate;
       newAssociate.stagingEndDate = this.newAssociateData.stagingEndDate;
       newAssociate.marketingStartDate = this.newAssociateData.marketingStartDate;

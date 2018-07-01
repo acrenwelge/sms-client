@@ -1,0 +1,1684 @@
+{
+  "associates": [
+    {
+      "selected": false,
+      "id": 1,
+      "firstName": "John",
+      "lastName": "Smith",
+      "attendance": {
+        "6/3/2018": true,
+        "6/4/2018": true,
+        "6/5/2018": false,
+        "6/6/2018": true
+      },
+      "batch": {
+        "id": 1,
+        "name": "1801Jan01Java",
+        "location": "UTA",
+        "skill": "Java",
+        "trainerName": "Ryan",
+        "startDate": "01-Jan-2018",
+        "endDate": "16-Mar-2018"
+      },
+      "marketingStartDate": "2018-06-01T00:09:29.612Z",
+      "stagingStartDate": "2018-06-03T00:09:29.612Z",
+      "confirmationDate": "2018-06-05T00:09:29.612Z",
+      "stagingEndDate": "2018-06-07T00:09:29.612Z",
+      "projectStartDate": "2018-06-09T00:09:29.612Z",
+      "numberInterviews": 0,
+      "repanelCount": 1,
+      "clientName": "InfoSys"
+    },
+    {
+      "selected": false,
+      "id": 2,
+      "firstName": "Alex",
+      "lastName": "Smith",
+      "attendance": {
+        "6/5/2018": false,
+        "6/6/2018": false,
+        "6/7/2018": false,
+        "6/8/2018": true,
+        "6/9/2018": false,
+        "6/10/2018": false
+      },
+      "batch": {
+        "id": 2,
+        "name": "1802Feb02JTA",
+        "location": "USF",
+        "skill": "JTA",
+        "trainerName": "Mehrab",
+        "startDate": "02-Feb-2018",
+        "endDate": "18-Apr-2018"
+      },
+      "marketingStartDate": "2018-06-02T00:09:29.612Z",
+      "stagingStartDate": "2018-06-05T00:09:29.612Z",
+      "confirmationDate": "2018-06-08T00:09:29.612Z",
+      "stagingEndDate": "2018-06-11T00:09:29.612Z",
+      "projectStartDate": "2018-06-14T00:09:29.612Z",
+      "numberInterviews": 1,
+      "repanelCount": 2,
+      "clientName": "Cognizant"
+    },
+    {
+      "selected": false,
+      "id": 3,
+      "firstName": "Mike",
+      "lastName": "Smith",
+      "attendance": {
+        "6/7/2018": false,
+        "6/8/2018": false,
+        "6/9/2018": true,
+        "6/10/2018": true,
+        "6/11/2018": false,
+        "6/12/2018": false,
+        "6/13/2018": true,
+        "6/14/2018": true
+      },
+      "batch": {
+        "id": 3,
+        "name": "1803Mar21Salesforce",
+        "location": "Online",
+        "skill": "Salesforce",
+        "trainerName": "Yuvi",
+        "startDate": "21-Mar-2018",
+        "endDate": "20-May-2018"
+      },
+      "marketingStartDate": "2018-06-03T00:09:29.612Z",
+      "stagingStartDate": "2018-06-07T00:09:29.612Z",
+      "confirmationDate": "2018-06-11T00:09:29.612Z",
+      "stagingEndDate": "2018-06-15T00:09:29.612Z",
+      "projectStartDate": "2018-06-19T00:09:29.612Z",
+      "numberInterviews": 2,
+      "repanelCount": 3,
+      "clientName": "Accenture"
+    },
+    {
+      "selected": false,
+      "id": 4,
+      "firstName": "Bob",
+      "lastName": "Smith",
+      "attendance": {
+        "6/9/2018": true,
+        "6/10/2018": false,
+        "6/11/2018": true,
+        "6/12/2018": false,
+        "6/13/2018": true,
+        "6/14/2018": false,
+        "6/15/2018": true,
+        "6/16/2018": true,
+        "6/17/2018": false,
+        "6/18/2018": false
+      },
+      "batch": {
+        "id": 4,
+        "name": "1804Apr18PEGA",
+        "location": "WVU",
+        "skill": "PEGA",
+        "trainerName": "William",
+        "startDate": "18-Apr-2018",
+        "endDate": "15-Jun-2018"
+      },
+      "marketingStartDate": "2018-06-04T00:09:29.612Z",
+      "stagingStartDate": "2018-06-09T00:09:29.612Z",
+      "confirmationDate": "2018-06-14T00:09:29.612Z",
+      "stagingEndDate": "2018-06-19T00:09:29.612Z",
+      "projectStartDate": "2018-06-24T00:09:29.612Z",
+      "numberInterviews": 3,
+      "repanelCount": 4,
+      "clientName": "Deloitte"
+    },
+    {
+      "selected": false,
+      "id": 5,
+      "firstName": "Alexandro",
+      "lastName": "Smith",
+      "attendance": {
+        "6/6/2018": false,
+        "6/7/2018": false
+      },
+      "batch": {
+        "id": 5,
+        "name": "1805May05Dynamics",
+        "location": "Online",
+        "skill": "Dynamics",
+        "trainerName": "Peter",
+        "startDate": "05-May-2018",
+        "endDate": "13-Jul-2018"
+      },
+      "marketingStartDate": "2018-06-05T00:09:29.612Z",
+      "stagingStartDate": "2018-06-06T00:09:29.612Z",
+      "confirmationDate": "2018-06-07T00:09:29.612Z",
+      "stagingEndDate": "2018-06-08T00:09:29.612Z",
+      "projectStartDate": "2018-06-09T00:09:29.612Z",
+      "numberInterviews": 0,
+      "repanelCount": 0,
+      "clientName": "TechMahindra"
+    },
+    {
+      "selected": false,
+      "id": 6,
+      "firstName": "Jesus",
+      "lastName": "Smith",
+      "attendance": {
+        "6/8/2018": true,
+        "6/9/2018": true,
+        "6/10/2018": false,
+        "6/11/2018": false
+      },
+      "batch": {
+        "id": 6,
+        "name": "1806Jun10BA",
+        "location": "UTA",
+        "skill": "BA",
+        "trainerName": "Richard",
+        "startDate": "10-Jun-2018",
+        "endDate": "15-Aug-2018"
+      },
+      "marketingStartDate": "2018-06-06T00:09:29.612Z",
+      "stagingStartDate": "2018-06-08T00:09:29.612Z",
+      "confirmationDate": "2018-06-10T00:09:29.612Z",
+      "stagingEndDate": "2018-06-12T00:09:29.612Z",
+      "projectStartDate": "2018-06-14T00:09:29.612Z",
+      "numberInterviews": 1,
+      "repanelCount": 1,
+      "clientName": "InfoSys"
+    },
+    {
+      "selected": false,
+      "id": 7,
+      "firstName": "Patrick",
+      "lastName": "Smith",
+      "attendance": {
+        "6/10/2018": true,
+        "6/11/2018": true,
+        "6/12/2018": true,
+        "6/13/2018": true,
+        "6/14/2018": false,
+        "6/15/2018": true
+      },
+      "batch": {
+        "id": 7,
+        "name": "1807Jul04SysAdmin",
+        "location": "Online",
+        "skill": "SysAdmin",
+        "trainerName": "Nick E.",
+        "startDate": "01-Jan-2018",
+        "endDate": "16-Mar-2018"
+      },
+      "marketingStartDate": "2018-06-07T00:09:29.612Z",
+      "stagingStartDate": "2018-06-10T00:09:29.612Z",
+      "confirmationDate": "2018-06-13T00:09:29.612Z",
+      "stagingEndDate": "2018-06-16T00:09:29.612Z",
+      "projectStartDate": "2018-06-19T00:09:29.612Z",
+      "numberInterviews": 2,
+      "repanelCount": 2,
+      "clientName": "Cognizant"
+    },
+    {
+      "selected": false,
+      "id": 8,
+      "firstName": "John",
+      "lastName": "Johnson",
+      "attendance": {
+        "6/12/2018": true,
+        "6/13/2018": false,
+        "6/14/2018": true,
+        "6/15/2018": true,
+        "6/16/2018": true,
+        "6/17/2018": true,
+        "6/18/2018": false,
+        "6/19/2018": true
+      },
+      "batch": {
+        "id": 1,
+        "name": "1801Jan01Java",
+        "location": "UTA",
+        "skill": "Java",
+        "trainerName": "Ryan",
+        "startDate": "01-Jan-2018",
+        "endDate": "16-Mar-2018"
+      },
+      "marketingStartDate": "2018-06-08T00:09:29.612Z",
+      "stagingStartDate": "2018-06-12T00:09:29.612Z",
+      "confirmationDate": "2018-06-16T00:09:29.612Z",
+      "stagingEndDate": "2018-06-20T00:09:29.612Z",
+      "projectStartDate": "2018-06-24T00:09:29.612Z",
+      "numberInterviews": 3,
+      "repanelCount": 3,
+      "clientName": "Accenture"
+    },
+    {
+      "selected": false,
+      "id": 9,
+      "firstName": "Alex",
+      "lastName": "Johnson",
+      "attendance": {
+        "6/14/2018": false,
+        "6/15/2018": false,
+        "6/16/2018": false,
+        "6/17/2018": true,
+        "6/18/2018": false,
+        "6/19/2018": true,
+        "6/20/2018": false,
+        "6/21/2018": true,
+        "6/22/2018": false,
+        "6/23/2018": true
+      },
+      "batch": {
+        "id": 2,
+        "name": "1802Feb02JTA",
+        "location": "USF",
+        "skill": "JTA",
+        "trainerName": "Mehrab",
+        "startDate": "02-Feb-2018",
+        "endDate": "18-Apr-2018"
+      },
+      "marketingStartDate": "2018-06-09T00:09:29.612Z",
+      "stagingStartDate": "2018-06-14T00:09:29.612Z",
+      "confirmationDate": "2018-06-19T00:09:29.612Z",
+      "stagingEndDate": "2018-06-24T00:09:29.612Z",
+      "projectStartDate": "2018-06-29T00:09:29.612Z",
+      "numberInterviews": 0,
+      "repanelCount": 4,
+      "clientName": "Deloitte"
+    },
+    {
+      "selected": false,
+      "id": 10,
+      "firstName": "Mike",
+      "lastName": "Johnson",
+      "attendance": {
+        "6/11/2018": false,
+        "6/12/2018": true
+      },
+      "batch": {
+        "id": 3,
+        "name": "1803Mar21Salesforce",
+        "location": "Online",
+        "skill": "Salesforce",
+        "trainerName": "Yuvi",
+        "startDate": "21-Mar-2018",
+        "endDate": "20-May-2018"
+      },
+      "marketingStartDate": "2018-06-10T00:09:29.612Z",
+      "stagingStartDate": "2018-06-11T00:09:29.612Z",
+      "confirmationDate": "2018-06-12T00:09:29.612Z",
+      "stagingEndDate": "2018-06-13T00:09:29.612Z",
+      "projectStartDate": "2018-06-14T00:09:29.612Z",
+      "numberInterviews": 1,
+      "repanelCount": 0,
+      "clientName": "TechMahindra"
+    },
+    {
+      "selected": false,
+      "id": 11,
+      "firstName": "Bob",
+      "lastName": "Johnson",
+      "attendance": {
+        "6/13/2018": false,
+        "6/14/2018": false,
+        "6/15/2018": true,
+        "6/16/2018": true
+      },
+      "batch": {
+        "id": 4,
+        "name": "1804Apr18PEGA",
+        "location": "WVU",
+        "skill": "PEGA",
+        "trainerName": "William",
+        "startDate": "18-Apr-2018",
+        "endDate": "15-Jun-2018"
+      },
+      "marketingStartDate": "2018-06-11T00:09:29.612Z",
+      "stagingStartDate": "2018-06-13T00:09:29.612Z",
+      "confirmationDate": "2018-06-15T00:09:29.612Z",
+      "stagingEndDate": "2018-06-17T00:09:29.612Z",
+      "projectStartDate": "2018-06-19T00:09:29.612Z",
+      "numberInterviews": 2,
+      "repanelCount": 1,
+      "clientName": "InfoSys"
+    },
+    {
+      "selected": false,
+      "id": 12,
+      "firstName": "Alexandro",
+      "lastName": "Johnson",
+      "attendance": {
+        "6/15/2018": true,
+        "6/16/2018": true,
+        "6/17/2018": false,
+        "6/18/2018": false,
+        "6/19/2018": false,
+        "6/20/2018": true
+      },
+      "batch": {
+        "id": 5,
+        "name": "1805May05Dynamics",
+        "location": "Online",
+        "skill": "Dynamics",
+        "trainerName": "Peter",
+        "startDate": "05-May-2018",
+        "endDate": "13-Jul-2018"
+      },
+      "marketingStartDate": "2018-06-12T00:09:29.612Z",
+      "stagingStartDate": "2018-06-15T00:09:29.612Z",
+      "confirmationDate": "2018-06-18T00:09:29.612Z",
+      "stagingEndDate": "2018-06-21T00:09:29.612Z",
+      "projectStartDate": "2018-06-24T00:09:29.612Z",
+      "numberInterviews": 3,
+      "repanelCount": 2,
+      "clientName": "Cognizant"
+    },
+    {
+      "selected": false,
+      "id": 13,
+      "firstName": "Jesus",
+      "lastName": "Johnson",
+      "attendance": {
+        "6/17/2018": true,
+        "6/18/2018": true,
+        "6/19/2018": true,
+        "6/20/2018": true,
+        "6/21/2018": false,
+        "6/22/2018": false,
+        "6/23/2018": false,
+        "6/24/2018": false
+      },
+      "batch": {
+        "id": 6,
+        "name": "1806Jun10BA",
+        "location": "UTA",
+        "skill": "BA",
+        "trainerName": "Richard",
+        "startDate": "10-Jun-2018",
+        "endDate": "15-Aug-2018"
+      },
+      "marketingStartDate": "2018-06-13T00:09:29.612Z",
+      "stagingStartDate": "2018-06-17T00:09:29.612Z",
+      "confirmationDate": "2018-06-21T00:09:29.612Z",
+      "stagingEndDate": "2018-06-25T00:09:29.612Z",
+      "projectStartDate": "2018-06-29T00:09:29.612Z",
+      "numberInterviews": 0,
+      "repanelCount": 3,
+      "clientName": "Accenture"
+    },
+    {
+      "selected": false,
+      "id": 14,
+      "firstName": "Patrick",
+      "lastName": "Johnson",
+      "attendance": {
+        "6/19/2018": false,
+        "6/20/2018": false,
+        "6/21/2018": true,
+        "6/22/2018": true,
+        "6/23/2018": false,
+        "6/24/2018": false,
+        "6/25/2018": false,
+        "6/26/2018": false,
+        "6/27/2018": false,
+        "6/28/2018": false
+      },
+      "batch": {
+        "id": 7,
+        "name": "1807Jul04SysAdmin",
+        "location": "Online",
+        "skill": "SysAdmin",
+        "trainerName": "Nick E.",
+        "startDate": "01-Jan-2018",
+        "endDate": "16-Mar-2018"
+      },
+      "marketingStartDate": "2018-06-14T00:09:29.612Z",
+      "stagingStartDate": "2018-06-19T00:09:29.612Z",
+      "confirmationDate": "2018-06-24T00:09:29.612Z",
+      "stagingEndDate": "2018-06-29T00:09:29.612Z",
+      "projectStartDate": "2018-07-04T00:09:29.612Z",
+      "numberInterviews": 1,
+      "repanelCount": 4,
+      "clientName": "Deloitte"
+    },
+    {
+      "selected": false,
+      "id": 15,
+      "firstName": "John",
+      "lastName": "Williams",
+      "attendance": {
+        "6/16/2018": true,
+        "6/17/2018": true
+      },
+      "batch": {
+        "id": 1,
+        "name": "1801Jan01Java",
+        "location": "UTA",
+        "skill": "Java",
+        "trainerName": "Ryan",
+        "startDate": "01-Jan-2018",
+        "endDate": "16-Mar-2018"
+      },
+      "marketingStartDate": "2018-06-15T00:09:29.612Z",
+      "stagingStartDate": "2018-06-16T00:09:29.612Z",
+      "confirmationDate": "2018-06-17T00:09:29.612Z",
+      "stagingEndDate": "2018-06-18T00:09:29.612Z",
+      "projectStartDate": "2018-06-19T00:09:29.612Z",
+      "numberInterviews": 2,
+      "repanelCount": 0,
+      "clientName": "TechMahindra"
+    },
+    {
+      "selected": false,
+      "id": 16,
+      "firstName": "Alex",
+      "lastName": "Williams",
+      "attendance": {
+        "6/18/2018": false,
+        "6/19/2018": false,
+        "6/20/2018": true,
+        "6/21/2018": true
+      },
+      "batch": {
+        "id": 2,
+        "name": "1802Feb02JTA",
+        "location": "USF",
+        "skill": "JTA",
+        "trainerName": "Mehrab",
+        "startDate": "02-Feb-2018",
+        "endDate": "18-Apr-2018"
+      },
+      "marketingStartDate": "2018-06-16T00:09:29.612Z",
+      "stagingStartDate": "2018-06-18T00:09:29.612Z",
+      "confirmationDate": "2018-06-20T00:09:29.612Z",
+      "stagingEndDate": "2018-06-22T00:09:29.612Z",
+      "projectStartDate": "2018-06-24T00:09:29.612Z",
+      "numberInterviews": 3,
+      "repanelCount": 1,
+      "clientName": "InfoSys"
+    },
+    {
+      "selected": false,
+      "id": 17,
+      "firstName": "Mike",
+      "lastName": "Williams",
+      "attendance": {
+        "6/20/2018": false,
+        "6/21/2018": true,
+        "6/22/2018": false,
+        "6/23/2018": true,
+        "6/24/2018": true,
+        "6/25/2018": false
+      },
+      "batch": {
+        "id": 3,
+        "name": "1803Mar21Salesforce",
+        "location": "Online",
+        "skill": "Salesforce",
+        "trainerName": "Yuvi",
+        "startDate": "21-Mar-2018",
+        "endDate": "20-May-2018"
+      },
+      "marketingStartDate": "2018-06-17T00:09:29.612Z",
+      "stagingStartDate": "2018-06-20T00:09:29.612Z",
+      "confirmationDate": "2018-06-23T00:09:29.612Z",
+      "stagingEndDate": "2018-06-26T00:09:29.612Z",
+      "projectStartDate": "2018-06-29T00:09:29.612Z",
+      "numberInterviews": 0,
+      "repanelCount": 2,
+      "clientName": "Cognizant"
+    },
+    {
+      "selected": false,
+      "id": 18,
+      "firstName": "Bob",
+      "lastName": "Williams",
+      "attendance": {
+        "6/22/2018": true,
+        "6/23/2018": false,
+        "6/24/2018": false,
+        "6/25/2018": false,
+        "6/26/2018": false,
+        "6/27/2018": false,
+        "6/28/2018": true,
+        "6/29/2018": false
+      },
+      "batch": {
+        "id": 4,
+        "name": "1804Apr18PEGA",
+        "location": "WVU",
+        "skill": "PEGA",
+        "trainerName": "William",
+        "startDate": "18-Apr-2018",
+        "endDate": "15-Jun-2018"
+      },
+      "marketingStartDate": "2018-06-18T00:09:29.612Z",
+      "stagingStartDate": "2018-06-22T00:09:29.612Z",
+      "confirmationDate": "2018-06-26T00:09:29.612Z",
+      "stagingEndDate": "2018-06-30T00:09:29.612Z",
+      "projectStartDate": "2018-07-04T00:09:29.612Z",
+      "numberInterviews": 1,
+      "repanelCount": 3,
+      "clientName": "Accenture"
+    },
+    {
+      "selected": false,
+      "id": 19,
+      "firstName": "Alexandro",
+      "lastName": "Williams",
+      "attendance": {
+        "6/24/2018": false,
+        "6/25/2018": false,
+        "6/26/2018": true,
+        "6/27/2018": false,
+        "6/28/2018": false,
+        "6/29/2018": false,
+        "6/30/2018": false,
+        "7/1/2018": true,
+        "7/2/2018": false,
+        "7/3/2018": false
+      },
+      "batch": {
+        "id": 5,
+        "name": "1805May05Dynamics",
+        "location": "Online",
+        "skill": "Dynamics",
+        "trainerName": "Peter",
+        "startDate": "05-May-2018",
+        "endDate": "13-Jul-2018"
+      },
+      "marketingStartDate": "2018-06-19T00:09:29.612Z",
+      "stagingStartDate": "2018-06-24T00:09:29.612Z",
+      "confirmationDate": "2018-06-29T00:09:29.612Z",
+      "stagingEndDate": "2018-07-04T00:09:29.612Z",
+      "projectStartDate": "2018-07-09T00:09:29.612Z",
+      "numberInterviews": 2,
+      "repanelCount": 4,
+      "clientName": "Deloitte"
+    },
+    {
+      "selected": false,
+      "id": 20,
+      "firstName": "Jesus",
+      "lastName": "Williams",
+      "attendance": {
+        "6/21/2018": true,
+        "6/22/2018": false
+      },
+      "batch": {
+        "id": 6,
+        "name": "1806Jun10BA",
+        "location": "UTA",
+        "skill": "BA",
+        "trainerName": "Richard",
+        "startDate": "10-Jun-2018",
+        "endDate": "15-Aug-2018"
+      },
+      "marketingStartDate": "2018-06-20T00:09:29.612Z",
+      "stagingStartDate": "2018-06-21T00:09:29.612Z",
+      "confirmationDate": "2018-06-22T00:09:29.612Z",
+      "stagingEndDate": "2018-06-23T00:09:29.612Z",
+      "projectStartDate": "2018-06-24T00:09:29.612Z",
+      "numberInterviews": 3,
+      "repanelCount": 0,
+      "clientName": "TechMahindra"
+    },
+    {
+      "selected": false,
+      "id": 21,
+      "firstName": "Patrick",
+      "lastName": "Williams",
+      "attendance": {
+        "6/23/2018": false,
+        "6/24/2018": false,
+        "6/25/2018": true,
+        "6/26/2018": true
+      },
+      "batch": {
+        "id": 7,
+        "name": "1807Jul04SysAdmin",
+        "location": "Online",
+        "skill": "SysAdmin",
+        "trainerName": "Nick E.",
+        "startDate": "01-Jan-2018",
+        "endDate": "16-Mar-2018"
+      },
+      "marketingStartDate": "2018-06-21T00:09:29.612Z",
+      "stagingStartDate": "2018-06-23T00:09:29.612Z",
+      "confirmationDate": "2018-06-25T00:09:29.612Z",
+      "stagingEndDate": "2018-06-27T00:09:29.612Z",
+      "projectStartDate": "2018-06-29T00:09:29.612Z",
+      "numberInterviews": 0,
+      "repanelCount": 1,
+      "clientName": "InfoSys"
+    },
+    {
+      "selected": false,
+      "id": 22,
+      "firstName": "John",
+      "lastName": "Jones",
+      "attendance": {
+        "6/25/2018": true,
+        "6/26/2018": false,
+        "6/27/2018": false,
+        "6/28/2018": false,
+        "6/29/2018": false,
+        "6/30/2018": true
+      },
+      "batch": {
+        "id": 1,
+        "name": "1801Jan01Java",
+        "location": "UTA",
+        "skill": "Java",
+        "trainerName": "Ryan",
+        "startDate": "01-Jan-2018",
+        "endDate": "16-Mar-2018"
+      },
+      "marketingStartDate": "2018-06-22T00:09:29.612Z",
+      "stagingStartDate": "2018-06-25T00:09:29.612Z",
+      "confirmationDate": "2018-06-28T00:09:29.612Z",
+      "stagingEndDate": "2018-07-01T00:09:29.612Z",
+      "projectStartDate": "2018-07-04T00:09:29.612Z",
+      "numberInterviews": 1,
+      "repanelCount": 2,
+      "clientName": "Cognizant"
+    },
+    {
+      "selected": false,
+      "id": 23,
+      "firstName": "Alex",
+      "lastName": "Jones",
+      "attendance": {
+        "6/27/2018": false,
+        "6/28/2018": false,
+        "6/29/2018": true,
+        "6/30/2018": false,
+        "7/1/2018": false,
+        "7/2/2018": true,
+        "7/3/2018": true,
+        "7/4/2018": false
+      },
+      "batch": {
+        "id": 2,
+        "name": "1802Feb02JTA",
+        "location": "USF",
+        "skill": "JTA",
+        "trainerName": "Mehrab",
+        "startDate": "02-Feb-2018",
+        "endDate": "18-Apr-2018"
+      },
+      "marketingStartDate": "2018-06-23T00:09:29.612Z",
+      "stagingStartDate": "2018-06-27T00:09:29.612Z",
+      "confirmationDate": "2018-07-01T00:09:29.612Z",
+      "stagingEndDate": "2018-07-05T00:09:29.612Z",
+      "projectStartDate": "2018-07-09T00:09:29.612Z",
+      "numberInterviews": 2,
+      "repanelCount": 3,
+      "clientName": "Accenture"
+    },
+    {
+      "selected": false,
+      "id": 24,
+      "firstName": "Mike",
+      "lastName": "Jones",
+      "attendance": {
+        "6/29/2018": false,
+        "6/30/2018": false,
+        "7/1/2018": false,
+        "7/2/2018": true,
+        "7/3/2018": false,
+        "7/4/2018": true,
+        "7/5/2018": true,
+        "7/6/2018": false,
+        "7/7/2018": true,
+        "7/8/2018": true
+      },
+      "batch": {
+        "id": 3,
+        "name": "1803Mar21Salesforce",
+        "location": "Online",
+        "skill": "Salesforce",
+        "trainerName": "Yuvi",
+        "startDate": "21-Mar-2018",
+        "endDate": "20-May-2018"
+      },
+      "marketingStartDate": "2018-06-24T00:09:29.612Z",
+      "stagingStartDate": "2018-06-29T00:09:29.612Z",
+      "confirmationDate": "2018-07-04T00:09:29.612Z",
+      "stagingEndDate": "2018-07-09T00:09:29.612Z",
+      "projectStartDate": "2018-07-14T00:09:29.612Z",
+      "numberInterviews": 3,
+      "repanelCount": 4,
+      "clientName": "Deloitte"
+    },
+    {
+      "selected": false,
+      "id": 25,
+      "firstName": "Bob",
+      "lastName": "Jones",
+      "attendance": {
+        "6/26/2018": true,
+        "6/27/2018": false
+      },
+      "batch": {
+        "id": 4,
+        "name": "1804Apr18PEGA",
+        "location": "WVU",
+        "skill": "PEGA",
+        "trainerName": "William",
+        "startDate": "18-Apr-2018",
+        "endDate": "15-Jun-2018"
+      },
+      "marketingStartDate": "2018-06-25T00:09:29.612Z",
+      "stagingStartDate": "2018-06-26T00:09:29.612Z",
+      "confirmationDate": "2018-06-27T00:09:29.612Z",
+      "stagingEndDate": "2018-06-28T00:09:29.612Z",
+      "projectStartDate": "2018-06-29T00:09:29.612Z",
+      "numberInterviews": 0,
+      "repanelCount": 0,
+      "clientName": "TechMahindra"
+    },
+    {
+      "selected": false,
+      "id": 26,
+      "firstName": "Alexandro",
+      "lastName": "Jones",
+      "attendance": {
+        "6/28/2018": false,
+        "6/29/2018": true,
+        "6/30/2018": true,
+        "7/1/2018": false
+      },
+      "batch": {
+        "id": 5,
+        "name": "1805May05Dynamics",
+        "location": "Online",
+        "skill": "Dynamics",
+        "trainerName": "Peter",
+        "startDate": "05-May-2018",
+        "endDate": "13-Jul-2018"
+      },
+      "marketingStartDate": "2018-06-26T00:09:29.612Z",
+      "stagingStartDate": "2018-06-28T00:09:29.612Z",
+      "confirmationDate": "2018-06-30T00:09:29.612Z",
+      "stagingEndDate": "2018-07-02T00:09:29.612Z",
+      "projectStartDate": "2018-07-04T00:09:29.612Z",
+      "numberInterviews": 1,
+      "repanelCount": 1,
+      "clientName": "InfoSys"
+    },
+    {
+      "selected": false,
+      "id": 27,
+      "firstName": "Jesus",
+      "lastName": "Jones",
+      "attendance": {
+        "6/30/2018": true,
+        "7/1/2018": false,
+        "7/2/2018": false,
+        "7/3/2018": false,
+        "7/4/2018": true,
+        "7/5/2018": false
+      },
+      "batch": {
+        "id": 6,
+        "name": "1806Jun10BA",
+        "location": "UTA",
+        "skill": "BA",
+        "trainerName": "Richard",
+        "startDate": "10-Jun-2018",
+        "endDate": "15-Aug-2018"
+      },
+      "marketingStartDate": "2018-06-27T00:09:29.612Z",
+      "stagingStartDate": "2018-06-30T00:09:29.612Z",
+      "confirmationDate": "2018-07-03T00:09:29.612Z",
+      "stagingEndDate": "2018-07-06T00:09:29.612Z",
+      "projectStartDate": "2018-07-09T00:09:29.612Z",
+      "numberInterviews": 2,
+      "repanelCount": 2,
+      "clientName": "Cognizant"
+    },
+    {
+      "selected": false,
+      "id": 28,
+      "firstName": "Patrick",
+      "lastName": "Jones",
+      "attendance": {
+        "7/2/2018": true,
+        "7/3/2018": true,
+        "7/4/2018": true,
+        "7/5/2018": false,
+        "7/6/2018": false,
+        "7/7/2018": true,
+        "7/8/2018": false,
+        "7/9/2018": false
+      },
+      "batch": {
+        "id": 7,
+        "name": "1807Jul04SysAdmin",
+        "location": "Online",
+        "skill": "SysAdmin",
+        "trainerName": "Nick E.",
+        "startDate": "01-Jan-2018",
+        "endDate": "16-Mar-2018"
+      },
+      "marketingStartDate": "2018-06-28T00:09:29.612Z",
+      "stagingStartDate": "2018-07-02T00:09:29.612Z",
+      "confirmationDate": "2018-07-06T00:09:29.612Z",
+      "stagingEndDate": "2018-07-10T00:09:29.612Z",
+      "projectStartDate": "2018-07-14T00:09:29.612Z",
+      "numberInterviews": 3,
+      "repanelCount": 3,
+      "clientName": "Accenture"
+    },
+    {
+      "selected": false,
+      "id": 29,
+      "firstName": "John",
+      "lastName": "Brown",
+      "attendance": {
+        "7/4/2018": false,
+        "7/5/2018": true,
+        "7/6/2018": false,
+        "7/7/2018": false,
+        "7/8/2018": false,
+        "7/9/2018": false,
+        "7/10/2018": false,
+        "7/11/2018": true,
+        "7/12/2018": false,
+        "7/13/2018": false
+      },
+      "batch": {
+        "id": 1,
+        "name": "1801Jan01Java",
+        "location": "UTA",
+        "skill": "Java",
+        "trainerName": "Ryan",
+        "startDate": "01-Jan-2018",
+        "endDate": "16-Mar-2018"
+      },
+      "marketingStartDate": "2018-06-29T00:09:29.612Z",
+      "stagingStartDate": "2018-07-04T00:09:29.612Z",
+      "confirmationDate": "2018-07-09T00:09:29.612Z",
+      "stagingEndDate": "2018-07-14T00:09:29.612Z",
+      "projectStartDate": "2018-07-19T00:09:29.612Z",
+      "numberInterviews": 0,
+      "repanelCount": 4,
+      "clientName": "Deloitte"
+    },
+    {
+      "selected": false,
+      "id": 30,
+      "firstName": "Alex",
+      "lastName": "Brown",
+      "attendance": {
+        "7/1/2018": false,
+        "7/2/2018": false
+      },
+      "batch": {
+        "id": 2,
+        "name": "1802Feb02JTA",
+        "location": "USF",
+        "skill": "JTA",
+        "trainerName": "Mehrab",
+        "startDate": "02-Feb-2018",
+        "endDate": "18-Apr-2018"
+      },
+      "marketingStartDate": "2018-06-30T00:09:29.612Z",
+      "stagingStartDate": "2018-07-01T00:09:29.612Z",
+      "confirmationDate": "2018-07-02T00:09:29.612Z",
+      "stagingEndDate": "2018-07-03T00:09:29.612Z",
+      "projectStartDate": "2018-07-04T00:09:29.612Z",
+      "numberInterviews": 1,
+      "repanelCount": 0,
+      "clientName": "TechMahindra"
+    },
+    {
+      "selected": false,
+      "id": 31,
+      "firstName": "Mike",
+      "lastName": "Brown",
+      "attendance": {
+        "7/3/2018": false,
+        "7/4/2018": false,
+        "7/5/2018": false,
+        "7/6/2018": false
+      },
+      "batch": {
+        "id": 3,
+        "name": "1803Mar21Salesforce",
+        "location": "Online",
+        "skill": "Salesforce",
+        "trainerName": "Yuvi",
+        "startDate": "21-Mar-2018",
+        "endDate": "20-May-2018"
+      },
+      "marketingStartDate": "2018-07-01T00:09:29.612Z",
+      "stagingStartDate": "2018-07-03T00:09:29.612Z",
+      "confirmationDate": "2018-07-05T00:09:29.612Z",
+      "stagingEndDate": "2018-07-07T00:09:29.612Z",
+      "projectStartDate": "2018-07-09T00:09:29.612Z",
+      "numberInterviews": 2,
+      "repanelCount": 1,
+      "clientName": "InfoSys"
+    },
+    {
+      "selected": false,
+      "id": 32,
+      "firstName": "Bob",
+      "lastName": "Brown",
+      "attendance": {
+        "7/5/2018": true,
+        "7/6/2018": true,
+        "7/7/2018": true,
+        "7/8/2018": false,
+        "7/9/2018": true,
+        "7/10/2018": true
+      },
+      "batch": {
+        "id": 4,
+        "name": "1804Apr18PEGA",
+        "location": "WVU",
+        "skill": "PEGA",
+        "trainerName": "William",
+        "startDate": "18-Apr-2018",
+        "endDate": "15-Jun-2018"
+      },
+      "marketingStartDate": "2018-07-02T00:09:29.612Z",
+      "stagingStartDate": "2018-07-05T00:09:29.612Z",
+      "confirmationDate": "2018-07-08T00:09:29.612Z",
+      "stagingEndDate": "2018-07-11T00:09:29.612Z",
+      "projectStartDate": "2018-07-14T00:09:29.612Z",
+      "numberInterviews": 3,
+      "repanelCount": 2,
+      "clientName": "Cognizant"
+    },
+    {
+      "selected": false,
+      "id": 33,
+      "firstName": "Alexandro",
+      "lastName": "Brown",
+      "attendance": {
+        "7/7/2018": false,
+        "7/8/2018": false,
+        "7/9/2018": false,
+        "7/10/2018": true,
+        "7/11/2018": false,
+        "7/12/2018": true,
+        "7/13/2018": false,
+        "7/14/2018": true
+      },
+      "batch": {
+        "id": 5,
+        "name": "1805May05Dynamics",
+        "location": "Online",
+        "skill": "Dynamics",
+        "trainerName": "Peter",
+        "startDate": "05-May-2018",
+        "endDate": "13-Jul-2018"
+      },
+      "marketingStartDate": "2018-07-03T00:09:29.612Z",
+      "stagingStartDate": "2018-07-07T00:09:29.612Z",
+      "confirmationDate": "2018-07-11T00:09:29.612Z",
+      "stagingEndDate": "2018-07-15T00:09:29.612Z",
+      "projectStartDate": "2018-07-19T00:09:29.612Z",
+      "numberInterviews": 0,
+      "repanelCount": 3,
+      "clientName": "Accenture"
+    },
+    {
+      "selected": false,
+      "id": 34,
+      "firstName": "Jesus",
+      "lastName": "Brown",
+      "attendance": {
+        "7/9/2018": true,
+        "7/10/2018": true,
+        "7/11/2018": true,
+        "7/12/2018": false,
+        "7/13/2018": false,
+        "7/14/2018": false,
+        "7/15/2018": true,
+        "7/16/2018": true,
+        "7/17/2018": false,
+        "7/18/2018": false
+      },
+      "batch": {
+        "id": 6,
+        "name": "1806Jun10BA",
+        "location": "UTA",
+        "skill": "BA",
+        "trainerName": "Richard",
+        "startDate": "10-Jun-2018",
+        "endDate": "15-Aug-2018"
+      },
+      "marketingStartDate": "2018-07-04T00:09:29.612Z",
+      "stagingStartDate": "2018-07-09T00:09:29.612Z",
+      "confirmationDate": "2018-07-14T00:09:29.612Z",
+      "stagingEndDate": "2018-07-19T00:09:29.612Z",
+      "projectStartDate": "2018-07-24T00:09:29.612Z",
+      "numberInterviews": 1,
+      "repanelCount": 4,
+      "clientName": "Deloitte"
+    },
+    {
+      "selected": false,
+      "id": 35,
+      "firstName": "Patrick",
+      "lastName": "Brown",
+      "attendance": {
+        "7/6/2018": false,
+        "7/7/2018": true
+      },
+      "batch": {
+        "id": 7,
+        "name": "1807Jul04SysAdmin",
+        "location": "Online",
+        "skill": "SysAdmin",
+        "trainerName": "Nick E.",
+        "startDate": "01-Jan-2018",
+        "endDate": "16-Mar-2018"
+      },
+      "marketingStartDate": "2018-07-05T00:09:29.612Z",
+      "stagingStartDate": "2018-07-06T00:09:29.612Z",
+      "confirmationDate": "2018-07-07T00:09:29.612Z",
+      "stagingEndDate": "2018-07-08T00:09:29.612Z",
+      "projectStartDate": "2018-07-09T00:09:29.612Z",
+      "numberInterviews": 2,
+      "repanelCount": 0,
+      "clientName": "TechMahindra"
+    },
+    {
+      "selected": false,
+      "id": 36,
+      "firstName": "John",
+      "lastName": "Miller",
+      "attendance": {
+        "7/8/2018": false,
+        "7/9/2018": true,
+        "7/10/2018": true,
+        "7/11/2018": false
+      },
+      "batch": {
+        "id": 1,
+        "name": "1801Jan01Java",
+        "location": "UTA",
+        "skill": "Java",
+        "trainerName": "Ryan",
+        "startDate": "01-Jan-2018",
+        "endDate": "16-Mar-2018"
+      },
+      "marketingStartDate": "2018-07-06T00:09:29.612Z",
+      "stagingStartDate": "2018-07-08T00:09:29.612Z",
+      "confirmationDate": "2018-07-10T00:09:29.612Z",
+      "stagingEndDate": "2018-07-12T00:09:29.612Z",
+      "projectStartDate": "2018-07-14T00:09:29.612Z",
+      "numberInterviews": 3,
+      "repanelCount": 1,
+      "clientName": "InfoSys"
+    },
+    {
+      "selected": false,
+      "id": 37,
+      "firstName": "Alex",
+      "lastName": "Miller",
+      "attendance": {
+        "7/10/2018": false,
+        "7/11/2018": true,
+        "7/12/2018": true,
+        "7/13/2018": true,
+        "7/14/2018": true,
+        "7/15/2018": true
+      },
+      "batch": {
+        "id": 2,
+        "name": "1802Feb02JTA",
+        "location": "USF",
+        "skill": "JTA",
+        "trainerName": "Mehrab",
+        "startDate": "02-Feb-2018",
+        "endDate": "18-Apr-2018"
+      },
+      "marketingStartDate": "2018-07-07T00:09:29.612Z",
+      "stagingStartDate": "2018-07-10T00:09:29.612Z",
+      "confirmationDate": "2018-07-13T00:09:29.612Z",
+      "stagingEndDate": "2018-07-16T00:09:29.612Z",
+      "projectStartDate": "2018-07-19T00:09:29.612Z",
+      "numberInterviews": 0,
+      "repanelCount": 2,
+      "clientName": "Cognizant"
+    },
+    {
+      "selected": false,
+      "id": 38,
+      "firstName": "Mike",
+      "lastName": "Miller",
+      "attendance": {
+        "7/12/2018": true,
+        "7/13/2018": false,
+        "7/14/2018": false,
+        "7/15/2018": false,
+        "7/16/2018": false,
+        "7/17/2018": true,
+        "7/18/2018": true,
+        "7/19/2018": true
+      },
+      "batch": {
+        "id": 3,
+        "name": "1803Mar21Salesforce",
+        "location": "Online",
+        "skill": "Salesforce",
+        "trainerName": "Yuvi",
+        "startDate": "21-Mar-2018",
+        "endDate": "20-May-2018"
+      },
+      "marketingStartDate": "2018-07-08T00:09:29.612Z",
+      "stagingStartDate": "2018-07-12T00:09:29.612Z",
+      "confirmationDate": "2018-07-16T00:09:29.612Z",
+      "stagingEndDate": "2018-07-20T00:09:29.612Z",
+      "projectStartDate": "2018-07-24T00:09:29.612Z",
+      "numberInterviews": 1,
+      "repanelCount": 3,
+      "clientName": "Accenture"
+    },
+    {
+      "selected": false,
+      "id": 39,
+      "firstName": "Bob",
+      "lastName": "Miller",
+      "attendance": {
+        "7/14/2018": false,
+        "7/15/2018": false,
+        "7/16/2018": true,
+        "7/17/2018": true,
+        "7/18/2018": false,
+        "7/19/2018": true,
+        "7/20/2018": false,
+        "7/21/2018": false,
+        "7/22/2018": true,
+        "7/23/2018": false
+      },
+      "batch": {
+        "id": 4,
+        "name": "1804Apr18PEGA",
+        "location": "WVU",
+        "skill": "PEGA",
+        "trainerName": "William",
+        "startDate": "18-Apr-2018",
+        "endDate": "15-Jun-2018"
+      },
+      "marketingStartDate": "2018-07-09T00:09:29.612Z",
+      "stagingStartDate": "2018-07-14T00:09:29.612Z",
+      "confirmationDate": "2018-07-19T00:09:29.612Z",
+      "stagingEndDate": "2018-07-24T00:09:29.612Z",
+      "projectStartDate": "2018-07-29T00:09:29.612Z",
+      "numberInterviews": 2,
+      "repanelCount": 4,
+      "clientName": "Deloitte"
+    },
+    {
+      "selected": false,
+      "id": 40,
+      "firstName": "Alexandro",
+      "lastName": "Miller",
+      "attendance": {
+        "7/11/2018": true,
+        "7/12/2018": false
+      },
+      "batch": {
+        "id": 5,
+        "name": "1805May05Dynamics",
+        "location": "Online",
+        "skill": "Dynamics",
+        "trainerName": "Peter",
+        "startDate": "05-May-2018",
+        "endDate": "13-Jul-2018"
+      },
+      "marketingStartDate": "2018-07-10T00:09:29.612Z",
+      "stagingStartDate": "2018-07-11T00:09:29.612Z",
+      "confirmationDate": "2018-07-12T00:09:29.612Z",
+      "stagingEndDate": "2018-07-13T00:09:29.612Z",
+      "projectStartDate": "2018-07-14T00:09:29.612Z",
+      "numberInterviews": 3,
+      "repanelCount": 0,
+      "clientName": "TechMahindra"
+    },
+    {
+      "selected": false,
+      "id": 41,
+      "firstName": "Jesus",
+      "lastName": "Miller",
+      "attendance": {
+        "7/13/2018": false,
+        "7/14/2018": false,
+        "7/15/2018": false,
+        "7/16/2018": false
+      },
+      "batch": {
+        "id": 6,
+        "name": "1806Jun10BA",
+        "location": "UTA",
+        "skill": "BA",
+        "trainerName": "Richard",
+        "startDate": "10-Jun-2018",
+        "endDate": "15-Aug-2018"
+      },
+      "marketingStartDate": "2018-07-11T00:09:29.612Z",
+      "stagingStartDate": "2018-07-13T00:09:29.612Z",
+      "confirmationDate": "2018-07-15T00:09:29.612Z",
+      "stagingEndDate": "2018-07-17T00:09:29.612Z",
+      "projectStartDate": "2018-07-19T00:09:29.612Z",
+      "numberInterviews": 0,
+      "repanelCount": 1,
+      "clientName": "InfoSys"
+    },
+    {
+      "selected": false,
+      "id": 42,
+      "firstName": "Patrick",
+      "lastName": "Miller",
+      "attendance": {
+        "7/15/2018": false,
+        "7/16/2018": false,
+        "7/17/2018": false,
+        "7/18/2018": false,
+        "7/19/2018": true,
+        "7/20/2018": false
+      },
+      "batch": {
+        "id": 7,
+        "name": "1807Jul04SysAdmin",
+        "location": "Online",
+        "skill": "SysAdmin",
+        "trainerName": "Nick E.",
+        "startDate": "01-Jan-2018",
+        "endDate": "16-Mar-2018"
+      },
+      "marketingStartDate": "2018-07-12T00:09:29.612Z",
+      "stagingStartDate": "2018-07-15T00:09:29.612Z",
+      "confirmationDate": "2018-07-18T00:09:29.612Z",
+      "stagingEndDate": "2018-07-21T00:09:29.612Z",
+      "projectStartDate": "2018-07-24T00:09:29.612Z",
+      "numberInterviews": 1,
+      "repanelCount": 2,
+      "clientName": "Cognizant"
+    },
+    {
+      "selected": false,
+      "id": 43,
+      "firstName": "John",
+      "lastName": "Wilson",
+      "attendance": {
+        "7/17/2018": true,
+        "7/18/2018": false,
+        "7/19/2018": false,
+        "7/20/2018": false,
+        "7/21/2018": false,
+        "7/22/2018": true,
+        "7/23/2018": false,
+        "7/24/2018": true
+      },
+      "batch": {
+        "id": 1,
+        "name": "1801Jan01Java",
+        "location": "UTA",
+        "skill": "Java",
+        "trainerName": "Ryan",
+        "startDate": "01-Jan-2018",
+        "endDate": "16-Mar-2018"
+      },
+      "marketingStartDate": "2018-07-13T00:09:29.612Z",
+      "stagingStartDate": "2018-07-17T00:09:29.612Z",
+      "confirmationDate": "2018-07-21T00:09:29.612Z",
+      "stagingEndDate": "2018-07-25T00:09:29.612Z",
+      "projectStartDate": "2018-07-29T00:09:29.612Z",
+      "numberInterviews": 2,
+      "repanelCount": 3,
+      "clientName": "Accenture"
+    },
+    {
+      "selected": false,
+      "id": 44,
+      "firstName": "Alex",
+      "lastName": "Wilson",
+      "attendance": {
+        "7/19/2018": false,
+        "7/20/2018": false,
+        "7/21/2018": false,
+        "7/22/2018": true,
+        "7/23/2018": false,
+        "7/24/2018": false,
+        "7/25/2018": false,
+        "7/26/2018": true,
+        "7/27/2018": true,
+        "7/28/2018": false
+      },
+      "batch": {
+        "id": 2,
+        "name": "1802Feb02JTA",
+        "location": "USF",
+        "skill": "JTA",
+        "trainerName": "Mehrab",
+        "startDate": "02-Feb-2018",
+        "endDate": "18-Apr-2018"
+      },
+      "marketingStartDate": "2018-07-14T00:09:29.612Z",
+      "stagingStartDate": "2018-07-19T00:09:29.612Z",
+      "confirmationDate": "2018-07-24T00:09:29.612Z",
+      "stagingEndDate": "2018-07-29T00:09:29.612Z",
+      "projectStartDate": "2018-08-03T00:09:29.612Z",
+      "numberInterviews": 3,
+      "repanelCount": 4,
+      "clientName": "Deloitte"
+    },
+    {
+      "selected": false,
+      "id": 45,
+      "firstName": "Mike",
+      "lastName": "Wilson",
+      "attendance": {
+        "7/16/2018": false,
+        "7/17/2018": false
+      },
+      "batch": {
+        "id": 3,
+        "name": "1803Mar21Salesforce",
+        "location": "Online",
+        "skill": "Salesforce",
+        "trainerName": "Yuvi",
+        "startDate": "21-Mar-2018",
+        "endDate": "20-May-2018"
+      },
+      "marketingStartDate": "2018-07-15T00:09:29.612Z",
+      "stagingStartDate": "2018-07-16T00:09:29.612Z",
+      "confirmationDate": "2018-07-17T00:09:29.612Z",
+      "stagingEndDate": "2018-07-18T00:09:29.612Z",
+      "projectStartDate": "2018-07-19T00:09:29.612Z",
+      "numberInterviews": 0,
+      "repanelCount": 0,
+      "clientName": "TechMahindra"
+    },
+    {
+      "selected": false,
+      "id": 46,
+      "firstName": "Bob",
+      "lastName": "Wilson",
+      "attendance": {
+        "7/18/2018": true,
+        "7/19/2018": false,
+        "7/20/2018": false,
+        "7/21/2018": true
+      },
+      "batch": {
+        "id": 4,
+        "name": "1804Apr18PEGA",
+        "location": "WVU",
+        "skill": "PEGA",
+        "trainerName": "William",
+        "startDate": "18-Apr-2018",
+        "endDate": "15-Jun-2018"
+      },
+      "marketingStartDate": "2018-07-16T00:09:29.612Z",
+      "stagingStartDate": "2018-07-18T00:09:29.612Z",
+      "confirmationDate": "2018-07-20T00:09:29.612Z",
+      "stagingEndDate": "2018-07-22T00:09:29.612Z",
+      "projectStartDate": "2018-07-24T00:09:29.612Z",
+      "numberInterviews": 1,
+      "repanelCount": 1,
+      "clientName": "InfoSys"
+    },
+    {
+      "selected": false,
+      "id": 47,
+      "firstName": "Alexandro",
+      "lastName": "Wilson",
+      "attendance": {
+        "7/20/2018": true,
+        "7/21/2018": true,
+        "7/22/2018": false,
+        "7/23/2018": false,
+        "7/24/2018": false,
+        "7/25/2018": true
+      },
+      "batch": {
+        "id": 5,
+        "name": "1805May05Dynamics",
+        "location": "Online",
+        "skill": "Dynamics",
+        "trainerName": "Peter",
+        "startDate": "05-May-2018",
+        "endDate": "13-Jul-2018"
+      },
+      "marketingStartDate": "2018-07-17T00:09:29.612Z",
+      "stagingStartDate": "2018-07-20T00:09:29.612Z",
+      "confirmationDate": "2018-07-23T00:09:29.612Z",
+      "stagingEndDate": "2018-07-26T00:09:29.612Z",
+      "projectStartDate": "2018-07-29T00:09:29.612Z",
+      "numberInterviews": 2,
+      "repanelCount": 2,
+      "clientName": "Cognizant"
+    },
+    {
+      "selected": false,
+      "id": 48,
+      "firstName": "Jesus",
+      "lastName": "Wilson",
+      "attendance": {
+        "7/22/2018": true,
+        "7/23/2018": false,
+        "7/24/2018": true,
+        "7/25/2018": false,
+        "7/26/2018": true,
+        "7/27/2018": false,
+        "7/28/2018": false,
+        "7/29/2018": false
+      },
+      "batch": {
+        "id": 6,
+        "name": "1806Jun10BA",
+        "location": "UTA",
+        "skill": "BA",
+        "trainerName": "Richard",
+        "startDate": "10-Jun-2018",
+        "endDate": "15-Aug-2018"
+      },
+      "marketingStartDate": "2018-07-18T00:09:29.612Z",
+      "stagingStartDate": "2018-07-22T00:09:29.612Z",
+      "confirmationDate": "2018-07-26T00:09:29.612Z",
+      "stagingEndDate": "2018-07-30T00:09:29.612Z",
+      "projectStartDate": "2018-08-03T00:09:29.612Z",
+      "numberInterviews": 3,
+      "repanelCount": 3,
+      "clientName": "Accenture"
+    },
+    {
+      "selected": false,
+      "id": 49,
+      "firstName": "Patrick",
+      "lastName": "Wilson",
+      "attendance": {
+        "7/24/2018": false,
+        "7/25/2018": true,
+        "7/26/2018": false,
+        "7/27/2018": true,
+        "7/28/2018": false,
+        "7/29/2018": false,
+        "7/30/2018": true,
+        "7/31/2018": false,
+        "8/1/2018": true,
+        "8/2/2018": true
+      },
+      "batch": {
+        "id": 7,
+        "name": "1807Jul04SysAdmin",
+        "location": "Online",
+        "skill": "SysAdmin",
+        "trainerName": "Nick E.",
+        "startDate": "01-Jan-2018",
+        "endDate": "16-Mar-2018"
+      },
+      "marketingStartDate": "2018-07-19T00:09:29.612Z",
+      "stagingStartDate": "2018-07-24T00:09:29.612Z",
+      "confirmationDate": "2018-07-29T00:09:29.612Z",
+      "stagingEndDate": "2018-08-03T00:09:29.612Z",
+      "projectStartDate": "2018-08-08T00:09:29.612Z",
+      "numberInterviews": 0,
+      "repanelCount": 4,
+      "clientName": "Deloitte"
+    }
+  ],
+  "trainers": [
+    {
+      "id": 1,
+      "name": "Ryan"
+    },
+    {
+      "id": 2,
+      "name": "Mehrab"
+    },
+    {
+      "id": 3,
+      "name": "Yuvi"
+    },
+    {
+      "id": 4,
+      "name": "William"
+    },
+    {
+      "id": 5,
+      "name": "Peter"
+    },
+    {
+      "id": 6,
+      "name": "Richard"
+    },
+    {
+      "id": 7,
+      "name": "Nick E."
+    },
+    {
+      "id": 8,
+      "name": "Nick J."
+    },
+    {
+      "id": 9,
+      "name": "Genesis"
+    },
+    {
+      "id": 10,
+      "name": "Steve"
+    },
+    {
+      "id": 11,
+      "name": "Matt"
+    },
+    {
+      "id": 12,
+      "name": "Wezley"
+    },
+    {
+      "id": 13,
+      "name": "Blake"
+    },
+    {
+      "id": 14,
+      "name": "Mitch"
+    },
+    {
+      "id": 15,
+      "name": "Emily"
+    },
+    {
+      "id": 16,
+      "name": "Carolyn"
+    },
+    {
+      "id": 17,
+      "name": "August"
+    }
+  ],
+  "batches": [
+    {
+      "id": 1,
+      "name": "1801Jan01Java",
+      "location": "UTA",
+      "skill": "Java",
+      "trainerName": "Ryan",
+      "startDate": "01-Jan-2018",
+      "endDate": "16-Mar-2018"
+    },
+    {
+      "id": 2,
+      "name": "1802Feb02JTA",
+      "location": "USF",
+      "skill": "JTA",
+      "trainerName": "Mehrab",
+      "startDate": "02-Feb-2018",
+      "endDate": "18-Apr-2018"
+    },
+    {
+      "id": 3,
+      "name": "1803Mar21Salesforce",
+      "location": "Online",
+      "skill": "Salesforce",
+      "trainerName": "Yuvi",
+      "startDate": "21-Mar-2018",
+      "endDate": "20-May-2018"
+    },
+    {
+      "id": 4,
+      "name": "1804Apr18PEGA",
+      "location": "WVU",
+      "skill": "PEGA",
+      "trainerName": "William",
+      "startDate": "18-Apr-2018",
+      "endDate": "15-Jun-2018"
+    },
+    {
+      "id": 5,
+      "name": "1805May05Dynamics",
+      "location": "Online",
+      "skill": "Dynamics",
+      "trainerName": "Peter",
+      "startDate": "05-May-2018",
+      "endDate": "13-Jul-2018"
+    },
+    {
+      "id": 6,
+      "name": "1806Jun10BA",
+      "location": "UTA",
+      "skill": "BA",
+      "trainerName": "Richard",
+      "startDate": "10-Jun-2018",
+      "endDate": "15-Aug-2018"
+    },
+    {
+      "id": 7,
+      "name": "1807Jul04SysAdmin",
+      "location": "Online",
+      "skill": "SysAdmin",
+      "trainerName": "Nick E.",
+      "startDate": "01-Jan-2018",
+      "endDate": "16-Mar-2018"
+    }
+  ],
+  "clients": [
+    {
+      "id": 1,
+      "name": "InfoSys"
+    },
+    {
+      "id": 2,
+      "name": "Cognizant"
+    },
+    {
+      "id": 3,
+      "name": "Accenture"
+    },
+    {
+      "id": 4,
+      "name": "Deloitte"
+    },
+    {
+      "id": 5,
+      "name": "TechMahindra"
+    }
+  ]
+}

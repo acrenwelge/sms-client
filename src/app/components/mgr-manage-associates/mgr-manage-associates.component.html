@@ -156,7 +156,7 @@
             </td>
             <!-- <td><a routerLink="/associates/{{associate.id}}">{{associate.id}}</a></td> -->
             <td><a routerLink="/associates/{{associate.id}}">{{associate.firstName}} {{associate.lastName}}</a></td>
-            <td *ngIf="!associate.absent; else elseBlock"><span class="text-success">Present</span></td>
+            <td *ngIf="associate.attendance[todayDateString]; else elseBlock"><span class="text-success">Present</span></td>
             <ng-template #elseBlock>
               <td><span class="text-danger">Absent</span></td>
             </ng-template>

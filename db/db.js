@@ -1,5 +1,8 @@
 // index.js
 module.exports = () => {
+  console.log("============================")
+  console.log('Creating resources...');
+  var beginningOfProcess = new Date();
   const data = {
     associates: [],
     trainers: [],
@@ -74,7 +77,14 @@ module.exports = () => {
     result.setDate(result.getDate() + days);
     return result;
   }
+  function getDayDiff(first, second) {
+    let start = new Date(first);
+    let end = new Date(second) || new Date();
+    let timeDiff = Math.abs(end.getTime() - start.getTime());
+    return Math.ceil(timeDiff / (1000 * 3600 * 24));
+  }
   let today = new Date();
+  let todayString = `${today.getMonth()+1}/${today.getDate()}/${today.getFullYear()}`;
   let beginningDate = addDays(today,-30); // begin about month back
   for (let i = 0; i < totAssociates; i++) {
     let dateinterval = (i+1) % 5 + 1; // 5 day max interval
@@ -83,22 +93,38 @@ module.exports = () => {
     let date3 = addDays(date1, dateinterval*2);
     let date4 = addDays(date1, dateinterval*3); 
     let date5 = addDays(date1, dateinterval*4); 
-    data.associates.push({
+    let assoc = {
       selected: false,
       id: i+1,
       firstName: firstNames[i % firstNames.length], // loop through first names first
       lastName: lastNames[Math.floor(i / firstNames.length)], // match every first name to every last name
-      absent: Math.random() > 0.5 ? true : false, // randomly assign
+      attendance: null,
       batch: data.batches[i % data.batches.length], // loop through batches
       marketingStartDate: date1, // every associate should start marketing a day later than the previous
       stagingStartDate: date2, // each phase should take dateinterval number of days
       confirmationDate: date3,
-      projectStartDate: date4,
-      stagingEndDate: date5,
+      stagingEndDate: date4,
+      projectStartDate: date5,
       numberInterviews: i % 4,
       repanelCount: (i+1) % 5,
       clientName: clients[i % clients.length] // loop through clients
-    });
+    };
+    // adding attendance object:
+    assoc.attendance = {}; // add 'attendance' property to associate
+    let start = new Date(assoc.stagingStartDate);
+    let end = new Date(assoc.stagingEndDate);
+    let days = getDayDiff(start,end);
+    for (let i=0;i<days;i++) { // loop through dates from staging start to end and assign attendance
+      let day = addDays(start,i+1); // the day for attendance
+      let dateString = `${day.getMonth()+1}/${day.getDate()}/${day.getFullYear()}`; // string representation
+      assoc.attendance[dateString] = Math.random() > 0.5 ? true : false; // randomly assign
+    }
+    data.associates.push(assoc);
   }
+  var endOfProcess = new Date();
+  var processTime = endOfProcess.getTime() - beginningOfProcess.getTime();
+  console.log("Finished!");
+  console.log(`Total time: ${processTime} (ms)`);
+  console.log("============================")
   return data;
 }

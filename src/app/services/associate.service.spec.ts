@@ -36,13 +36,14 @@ describe('AssociateService', () => {
 
   xit('should update an associate', inject([AssociateService], (service: AssociateService) => {
     const id = 1;
+    const now = new Date(); const dateString = `${now.getMonth()+1}/${now.getDate()}/${now.getFullYear()}`;
     service.getAssociate(id).subscribe(associate => {
       const updatedAssociate: Associate = {
         selected: !associate.selected,
         id: id,
         firstName: 'testingFirstName',
         lastName: 'testingLastName',
-        absent: !associate.absent,
+        attendance: {dateString: !associate.attendance[dateString]},
         batch: {
           id: 1,
           trainerName: 'testTrainerName',
@@ -67,7 +68,7 @@ describe('AssociateService', () => {
         expect(newAssociate.id).toEqual(updatedAssociate.id);
         expect(newAssociate.firstName).toEqual(updatedAssociate.firstName);
         expect(newAssociate.lastName).toEqual(updatedAssociate.lastName);
-        expect(newAssociate.absent).not.toEqual(associate.absent);
+        expect(newAssociate.attendance[dateString]).not.toEqual(associate.attendance[dateString]);
         expect(newAssociate.batch.trainerName).toEqual(updatedAssociate.batch.trainerName);
         expect(newAssociate.batch.name).toEqual(updatedAssociate.batch.name);
         expect(newAssociate.batch.location).toEqual(updatedAssociate.batch.location);

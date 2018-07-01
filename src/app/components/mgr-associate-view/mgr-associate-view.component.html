@@ -27,7 +27,7 @@
               </tr>
               <tr>
                 <th scope="row"><i class="fas fa-check"></i> Today's Attendance</th>
-                <td *ngIf="!editingMode && !associate.absent; else elseBlock"><span class="text-success">Present</span></td>
+                <td *ngIf="!editingMode && associate.attendance[todayDateString]; else elseBlock"><span class="text-success">Present</span></td>
                 <ng-template #elseBlock>
                   <td *ngIf="!editingMode"><span class="text-danger">Absent</span></td>
                 </ng-template>

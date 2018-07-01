@@ -12,6 +12,7 @@ import { Batch } from '../../models/batch';
   styleUrls: ['./mgr-manage-associates.component.css']
 })
 export class MgrManageAssociatesComponent implements OnInit {
+  todayDateString: string;
   associates: Associate[];
   selectedAssociates: Associate[] = []; // initialize to empty array
   trainers: any[] = [];
@@ -37,6 +38,8 @@ export class MgrManageAssociatesComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    const now = new Date();
+    this.todayDateString = `${now.getMonth()+1}/${now.getDate()}/${now.getFullYear()}`;
     this.associateService.getAssociatesInStaging().subscribe(allAssociates => {
       this.associates = allAssociates;
     });

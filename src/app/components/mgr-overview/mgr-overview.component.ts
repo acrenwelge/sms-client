@@ -4,6 +4,7 @@ import { AssociateFilterService } from '../../services/associate-filter.service'
 import { Associate } from '../../models/associate';
 import { StatsService } from '../../services/stats.service';
 import { Stats } from '../../models/stats';
+import { DateService } from '../../services/date.service';
 
 @Component({
   selector: 'app-mgr-overview',
@@ -11,10 +12,10 @@ import { Stats } from '../../models/stats';
   styleUrls: ['./mgr-overview.component.css']
 })
 export class MgrOverviewComponent implements OnInit {
-  todayDateString: string;
+  todayDateString: string = this.dateService.getTodayDateString();
   associates: Associate[];
   filteredAssociates: Associate[] = []; // init to empty array
-  timePeriodOpts: {today: string, week: string, month: string, qtr: string, yr: string} = this.filterService.getTimePeriodOpts();
+  timePeriodOpts: {today: string, week: string, month: string, qtr: string, yr: string} = this.dateService.timePeriodOpts;
   timePeriod: string = this.timePeriodOpts.today; // default to today
   stats: Stats;
 
@@ -53,12 +54,11 @@ export class MgrOverviewComponent implements OnInit {
   constructor(
     private associateService: AssociateService,
     private filterService: AssociateFilterService,
+    private dateService: DateService,
     private statsService: StatsService
   ) { }
 
   ngOnInit() {
-    const now = new Date(); 
-    this.todayDateString = `${now.getMonth()+1}/${now.getDate()}/${now.getFullYear()}`;
     this.associateService.getAssociatesInStaging().subscribe(allAssociates => {
       this.associates = allAssociates;
       this.filteredAssociates = this.filterService.filterAssociates(this.associates, this.timePeriod);

@@ -2,25 +2,53 @@
   <div class="row">
     <main role="main" class="col-lg-12">
       <h2>Attendance Report</h2>
-      <div class="mb-2">
-        <div class="button-group w-25" role="group">
-          <div class="button-group">
-            <button class="btn btn-sm btn-outline-secondary"><i class="far fa-file-pdf"></i> Download as PDF</button>
-            <button class="btn btn-sm btn-outline-secondary dropdown-toggle" data-toggle="dropdown">
-              <span class="far fa-calendar"></span>
-              {{reportDuration}}
-            </button>
-            <div class="dropdown-menu">
-                <a class="dropdown-item" (click)="changeReportDuration('Today')">Today</a>
-                <a class="dropdown-item" (click)="changeReportDuration('This week')">This week</a>
-                <a class="dropdown-item" (click)="changeReportDuration('This month')">This month</a>
-                <a class="dropdown-item" (click)="changeReportDuration('This quarter')">This quarter</a>
-                <a class="dropdown-item" (click)="changeReportDuration('This year')">This year</a>
-            </div>
+      <div>
+        <p>
+          Selecting a time period below will <strong>filter all data</strong> for associates 
+          who <strong>were in staging for at least a day during the time period</strong>:
+        </p>
+        <div class="my-2">
+          <mat-button-toggle-group [value]="timePeriod" (change)="timePeriodChange($event)">
+            <mat-button-toggle [value]="timePeriodOpts.today">{{timePeriodOpts.today}}</mat-button-toggle>
+            <mat-button-toggle [value]="timePeriodOpts.week">{{timePeriodOpts.week}}</mat-button-toggle>
+            <mat-button-toggle [value]="timePeriodOpts.month">{{timePeriodOpts.month}}</mat-button-toggle>
+            <mat-button-toggle [value]="timePeriodOpts.qtr">{{timePeriodOpts.qtr}}</mat-button-toggle>
+            <mat-button-toggle [value]="timePeriodOpts.yr">{{timePeriodOpts.yr}}</mat-button-toggle>
+          </mat-button-toggle-group>
+        </div>
+        <div class="row">
+          <div class="col-lg-12"> 
+            <ul>
+              <li><strong>Total number of associates: </strong>{{filteredAssociates.length}}</li>
+              <li><strong>Total absences {{timePeriod | lowercase}}: </strong>{{stats?.totalAbsent}}</li>
+              <li><strong>Total present {{timePeriod | lowercase}}: </strong>{{stats?.totalPresent}}</li>
+              <li><strong>Attendance: </strong>{{stats?.totalPresent / (stats?.totalAbsent + stats?.totalPresent) | percent:'2.1-1'}}</li>
+            </ul>
+          </div>
+          <div class="col-lg-6">
+            <app-chart
+              type="pie"
+              [data]="[stats?.totalAbsent, stats?.totalPresent]"
+              [labels]="['absent', 'present']"
+            ></app-chart>
+          </div>
+          <div class="col-lg-6" *ngIf="timePeriod != timePeriodOpts.today">
+            <app-chart
+              type="line"
+              [data]="stats.history.data"
+              [labels]="lineChartLabels"
+              [options]="attendanceLineChartOpts"
+            ></app-chart>
           </div>
         </div>
       </div>
-      <canvas></canvas>
+
+      <div *ngIf="associates">
+        <app-associate-table 
+          [associates]="filteredAssociates"
+          [displayedColNames]="['name', 'attendance', 'batchName','startMarketing', 'startStaging', 'confirmation', 'projectStart', 'stagingEnd','interviews', 'repanels', 'client']"
+        ></app-associate-table>
+      </div>
     </main>
   </div>
 </div>

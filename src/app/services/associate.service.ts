@@ -18,6 +18,24 @@ export class AssociateService {
 
   constructor(private http: HttpClient) { }
 
+  /**
+   * Return the attendance statistics of an individual associate
+   * @param assoc the associate
+   */
+  public getAttendanceStats(assoc: Associate) {
+    let stats = {
+      present: 0,
+      absent: 0,
+      attendFraction: 0
+    }
+    for (let dateStr in assoc.attendance) {
+      if (assoc.attendance[dateStr]) stats.present++;
+      else stats.absent++;
+    }
+    stats.attendFraction = stats.present / (stats.absent + stats.present);
+    return stats;
+  }
+
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
       // A client-side or network error occurred

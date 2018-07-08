@@ -118,7 +118,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let associate of associates" [ngClass]="{'table-info': associate.selected}">
+            <tr *ngFor="let associate of filteredAssociates" [ngClass]="{'table-info': associate.selected}">
               <!-- <td><a routerLink="/associates/{{associate.id}}">{{associate.id}}</a></td> -->
               <td><a routerLink="/associates/{{associate.id}}">{{associate.firstName}} {{associate.lastName}}</a></td>
               <td *ngIf="associate.attendance[todayDateString]; else elseBlock"><span class="text-success">Present</span></td>
@@ -143,7 +143,7 @@
   
         <div *ngIf="associates">
           <app-associate-table 
-            [associates]="associates"
+            [associates]="filteredAssociates"
             [displayedColNames]="['name', 'attendance', 'batchName','startMarketing', 'startStaging', 'confirmation', 'projectStart', 'stagingEnd','interviews', 'repanels', 'client']"
           ></app-associate-table>
         </div>

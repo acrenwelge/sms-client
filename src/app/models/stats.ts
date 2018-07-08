@@ -7,4 +7,5 @@ export class Stats {
   avgDaysMkToProjStart: number;
   avgInterviews: number;
   avgRepanels: number;
+  history: {data: number[], labels: string[]};
 }

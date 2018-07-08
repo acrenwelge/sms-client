@@ -109,6 +109,12 @@ module.exports = () => {
       repanelCount: (i+1) % 5,
       clientName: clients[i % clients.length] // loop through clients
     };
+    if (Math.random() > 0.5) {
+      assoc.stagingEndDate = addDays(assoc.stagingEndDate,1); // randomly extend staging by a day
+    }
+    if (Math.random() > 0.5) {
+      assoc.projectStartDate = addDays(assoc.projectStartDate,1); // randomly extend project start date by a day
+    }
     // adding attendance object:
     assoc.attendance = {}; // add 'attendance' property to associate
     let start = new Date(assoc.stagingStartDate);
@@ -121,6 +127,11 @@ module.exports = () => {
     }
     data.associates.push(assoc);
   }
+  // let first associate be unconfirmed
+  data.associates[0].confirmationDate = null;
+  data.associates[0].projectStartDate = null;
+  data.associates[0].stagingEndDate = null;
+  data.associates[0].clientName = null;
   var endOfProcess = new Date();
   var processTime = endOfProcess.getTime() - beginningOfProcess.getTime();
   console.log("Finished!");

@@ -4,6 +4,7 @@ import { Location } from '@angular/common';
 
 import { AssociateService } from '../../services/associate.service';
 import { Associate } from '../../models/associate';
+import { DateService } from '../../services/date.service';
 
 @Component({
   selector: 'app-mgr-associate-view',
@@ -13,17 +14,18 @@ import { Associate } from '../../models/associate';
 export class MgrAssociateViewComponent implements OnInit {
   public todayDateString: string;
   public associate: Associate = new Associate();
+  public attendanceFrac: number;
   public progressValue: number;
   public progressText: string;
   public editingMode = false;
 
   // new associate properties
   public newAttendance: boolean;
-  public newMarketingStartDate: Date = new Date('2018-01-26');
-  public newStagingStartDate: Date = new Date('2018-01-26');
-  public newStagingEndDate: Date = new Date('2018-01-26');
-  public newConfirmationDate: Date = new Date('2018-01-26');
-  public newProjectStartDate: Date = new Date('2018-01-26');
+  public newMarketingStartDate: Date = new Date();
+  public newStagingStartDate: Date = new Date();
+  public newStagingEndDate: Date = new Date();
+  public newConfirmationDate: Date = new Date();
+  public newProjectStartDate: Date = new Date();
   public newClientName: string;
   public newNumberInterviews: number;
   public newRepanelCount: number;
@@ -31,13 +33,15 @@ export class MgrAssociateViewComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private associateService: AssociateService,
-    private location: Location
-  ) {}
+    private location: Location,
+    private ds: DateService
+  ) {
+    this.todayDateString = this.ds.getTodayDateString();
+  }
 
   ngOnInit() {
-    const now = new Date();
-    this.todayDateString = `${now.getMonth()+1}/${now.getDate()}/${now.getFullYear()}`;
     this.associate = this.route.snapshot.data['associate'];
+    this.attendanceFrac = this.associateService.getAttendanceStats(this.associate).attendFraction;
     this.progressValue = 50;
     this.progressText = "in staging...";
   }
@@ -107,8 +111,7 @@ export class MgrAssociateViewComponent implements OnInit {
   }
 
   saveNewVariables() {
-    let now = new Date(); let dateString = `${now.getMonth()+1}/${now.getDate()}/${now.getFullYear()}`;
-    this.associate.attendance[dateString] = this.newAttendance;
+    this.associate.attendance[this.todayDateString] = this.newAttendance;
     this.associate.marketingStartDate = this.newMarketingStartDate;
     this.associate.stagingStartDate = this.newStagingStartDate;
     this.associate.stagingEndDate = this.newStagingEndDate;
@@ -120,8 +123,7 @@ export class MgrAssociateViewComponent implements OnInit {
   }
 
   resetNewVariables() {
-    let now = new Date(); let dateString = `${now.getMonth()+1}/${now.getDate()}/${now.getFullYear()}`;
-    this.newAttendance[dateString] = this.associate.attendance;
+    this.newAttendance[this.todayDateString] = this.associate.attendance;
     this.newMarketingStartDate = this.associate.marketingStartDate;
     this.newStagingStartDate = this.associate.stagingStartDate;
     this.newStagingEndDate = this.associate.stagingEndDate;

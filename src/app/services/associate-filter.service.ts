@@ -1,46 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Associate } from '../models/associate';
+import { DateService } from './date.service';
 
 @Injectable()
 export class AssociateFilterService {
 
-  constructor() { }
-
-  getMonday(d: Date) {
-    d = new Date(d);
-    var day = d.getDay(),
-        diff = d.getDate() - day + (day == 0 ? -6 : 1);
-    return new Date(d.setDate(diff));
-  }
-
-  getFriday(d: Date) {
-    d = new Date(d);
-    var day = d.getDay(),
-        diff = d.getDate() + (5 - day);
-    return new Date(d.setDate(diff));
-  }
-
-  getMonthStart(d: Date) {
-    d = new Date(d);
-    return new Date(d.setDate(1));
-  }
-
-  getMonthEnd(d: Date) {
-    d = new Date(d);
-    return new Date(d.getFullYear(),d.getMonth()+1,0);
-  }
-
-  timePeriodOpts: {today: string, week: string, month: string, qtr: string, yr: string} = {
-    today: 'today',
-    week: 'this week',
-    month: 'this month',
-    qtr: 'this quarter',
-    yr: 'this year'
-  };
-
-  getTimePeriodOpts() {
-    return this.timePeriodOpts;
-  };
+  constructor(private ds: DateService) { }
 
   /** Filters associates based on the time period being inspected - today, this week, this month, this quarter, or this year.
    *   - today: start date was before today AND end date is after today
@@ -51,35 +16,36 @@ export class AssociateFilterService {
    */
   filterAssociates(associates: Associate[],timePeriod: string): Associate[] {
     let now = new Date();
-    let monday = this.getMonday(now);
-    let friday = this.getFriday(now);
-    let som = this.getMonthStart(now); // set to start of month
-    let eom = this.getMonthEnd(now); // set to end of month
-    let soq = this.getMonthStart(now); // set to start of month
-    let eoq = this.getMonthEnd(now); // set to end of month
+    let monday = this.ds.getMonday(now);
+    let friday = this.ds.getFriday(now);
+    let som = this.ds.getMonthStart(now); // set to start of month
+    let eom = this.ds.getMonthEnd(now); // set to end of month
+    let soq = this.ds.getMonthStart(now); // set to start of month
+    let eoq = this.ds.getMonthEnd(now); // set to end of month
     let soy = new Date(now.getFullYear(),0,1); // set to Jan 1 - start of year
     let eoy = new Date(now.getFullYear(),11,31); // set to Dec 31 - end of year
-    if (timePeriod == this.timePeriodOpts.today) { 
+    if (timePeriod == this.ds.timePeriodOpts.today) { 
       return associates.filter((assoc) => {
         return new Date(assoc.stagingStartDate) < now && new Date(assoc.stagingEndDate) > now;
       });
-    } else if (timePeriod == this.timePeriodOpts.week) {
+    } else if (timePeriod == this.ds.timePeriodOpts.week) {
       return associates.filter((assoc) => {
         return new Date(assoc.stagingStartDate) < friday && new Date(assoc.stagingEndDate) > monday;
       });
-    } else if (timePeriod == this.timePeriodOpts.month) {
+    } else if (timePeriod == this.ds.timePeriodOpts.month) {
       return associates.filter((assoc) => {
         return new Date(assoc.stagingStartDate) < eom && new Date(assoc.stagingEndDate) > som;
       });
-    } else if (timePeriod == this.timePeriodOpts.qtr) {
+    } else if (timePeriod == this.ds.timePeriodOpts.qtr) {
       return associates.filter((assoc) => {
         return new Date(assoc.stagingStartDate) < eoq && new Date(assoc.stagingEndDate) > soq;
       });
-    } else if (timePeriod == this.timePeriodOpts.yr) {
+    } else if (timePeriod == this.ds.timePeriodOpts.yr) {
       return associates.filter((assoc) => {
         return new Date(assoc.stagingStartDate) < eoy && new Date(assoc.stagingEndDate) > soy;
       });
     }
+    console.log(`Time to filter associates: ${Date.now() - now.getTime()} ms`);
     return associates;
   }
 

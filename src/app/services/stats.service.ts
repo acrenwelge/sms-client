@@ -1,35 +1,58 @@
 import { Injectable } from '@angular/core';
 import { Stats } from '../models/stats';
 import { Associate } from '../models/associate';
+import { DateService } from './date.service';
 
 @Injectable()
 export class StatsService {
-  stats: Stats;
+  stats: Stats = new Stats();
 
-  constructor() {
-    this.stats = new Stats();
+  constructor(private ds: DateService) {
   }
 
-  getDayDiff(first, second) {
-    let start: Date = new Date(first);
-    let end: Date = new Date(second) || new Date();
-    let timeDiff = Math.abs(end.getTime() - start.getTime());
-    return Math.ceil(timeDiff / (1000 * 3600 * 24));
+  /**
+   * add in the individual associate attendance for the given time period.
+   * @param assoc 
+   * @param timePeriod 
+   */
+  private addSingleAssocAttendance(assoc: Associate, timePeriod: string) {
+    let startOfPeriod, endOfPeriod;
+    // assign start / end dates
+    if (timePeriod == this.ds.timePeriodOpts.today) { // calc today's attendance
+      if (assoc.attendance[this.ds.getTodayDateString()]) this.stats.totalPresent++;
+      else this.stats.totalAbsent++;
+    } else if (timePeriod == this.ds.timePeriodOpts.week) {
+      startOfPeriod = this.ds.dates.monday;
+      endOfPeriod = this.ds.dates.friday;
+    } else if (timePeriod == this.ds.timePeriodOpts.month) {
+      startOfPeriod = this.ds.dates.som;
+      endOfPeriod = this.ds.dates.eom;
+    } else if (timePeriod == this.ds.timePeriodOpts.qtr) {
+      startOfPeriod = this.ds.dates.soq;
+      endOfPeriod = this.ds.dates.eoq;
+    } else if (timePeriod == this.ds.timePeriodOpts.yr) {
+      startOfPeriod = this.ds.dates.soy;
+      endOfPeriod = this.ds.dates.eoy;
+    }
+    if (timePeriod != this.ds.timePeriodOpts.today) { // skip if today - already calculated above
+      for (let dateStr in assoc.attendance) {
+        let date = new Date(dateStr);
+        if (date < endOfPeriod && date > startOfPeriod) { // filter by dates that are within the time period
+          if (assoc.attendance[dateStr]) this.stats.totalPresent++;
+          else this.stats.totalAbsent++;
+        }
+      }
+    }
   }
 
+  /**
+   * Returns the statistics object calculated for the given associates over given time period
+   * @param associates 
+   * @param timePeriod 
+   */
   calcStatistics(associates: Associate[], timePeriod: string): Stats {
-    let dateService = { 
-      now: new Date(),
-      monday: new Date('6/25/2018'),
-      friday: new Date('6/29/2018'),
-      som: new Date('6/1/2018'),
-      eom: new Date('6/30/2018'),
-      soq: new Date('3/15/2018'),
-      eoq: new Date('7/31/2018'),
-      soy: new Date('1/1/2018'),
-      eoy: new Date('12/31/2018')
-    };
-    // reset totals
+    let start = Date.now();
+    // reset stats totals
     this.stats.totalAbsent = 0;
     this.stats.totalPresent = 0;
     this.stats.totalConfirmed = 0;
@@ -40,60 +63,89 @@ export class StatsService {
     let totInts = 0;
     let totRepanels = 0;
     let totAssociates = associates.length;
-    let now = new Date(); let today = `${now.getMonth()+1}/${now.getDate()}/${now.getFullYear()}`;
     for (let i=0; i < totAssociates; i++) {
       let assoc: Associate = associates[i];
       // calculate total attendance for the given time period
-      if (timePeriod == 'today') {
-        if (assoc.attendance[today]) this.stats.totalPresent++;
-        else this.stats.totalAbsent++;
-      } else if (timePeriod == 'this week') {
-        for (let dateStr in assoc.attendance) {
-          let date = new Date(dateStr);
-          if (date < dateService.friday && date > dateService.monday) {
-            if (assoc.attendance[dateStr]) this.stats.totalPresent++;
-            else this.stats.totalAbsent++;
-          }
-        }
-      } else if (timePeriod == 'this month') {
-        for (let dateStr in assoc.attendance) {
-          let date = new Date(dateStr);
-          if (date < dateService.eom && date > dateService.som) {
-            if (assoc.attendance[dateStr]) this.stats.totalPresent++;
-            else this.stats.totalAbsent++;
-          }
-        }
-      } else if (timePeriod == 'this quarter') {
-        for (let dateStr in assoc.attendance) {
-          let date = new Date(dateStr);
-          if (date < dateService.eoq && date > dateService.soq) {
-            if (assoc.attendance[dateStr]) this.stats.totalPresent++;
-            else this.stats.totalAbsent++;
-          }
-        }
-      } else if (timePeriod == 'this year') {
-        for (let dateStr in assoc.attendance) {
-          let date = new Date(dateStr);
-          if (date < dateService.eoy && date > dateService.soy) {
-            if (assoc.attendance[dateStr]) this.stats.totalPresent++;
-            else this.stats.totalAbsent++;
-          }
-        }
-      }
+      this.addSingleAssocAttendance(assoc, timePeriod);
       // calculate other totals
       if (assoc.confirmationDate) {this.stats.totalConfirmed++;}
-      totDaysInStaging += this.getDayDiff(assoc.stagingStartDate, assoc.stagingEndDate);
-      totDaysMkToConf += this.getDayDiff(assoc.marketingStartDate, assoc.confirmationDate);
-      totDaysMkToProjStart += this.getDayDiff(assoc.marketingStartDate, assoc.projectStartDate);;
+      totDaysInStaging += this.ds.getDayDiff(assoc.stagingStartDate, assoc.stagingEndDate);
+      totDaysMkToConf += this.ds.getDayDiff(assoc.marketingStartDate, assoc.confirmationDate);
+      totDaysMkToProjStart += this.ds.getDayDiff(assoc.marketingStartDate, assoc.projectStartDate);;
       totInts += assoc.numberInterviews;
       totRepanels += assoc.repanelCount;
     }
+    // calculate averages
     this.stats.avgDaysInStaging = +(totDaysInStaging / totAssociates).toFixed(2);
     this.stats.avgDaysMkToConf = +(totDaysMkToConf / totAssociates).toFixed(2);
     this.stats.avgDaysMkToProjStart = +(totDaysMkToProjStart / totAssociates).toFixed(2);
     this.stats.avgInterviews = +(totInts / totAssociates).toFixed(2);
     this.stats.avgRepanels = +(totRepanels / totAssociates).toFixed(2);
+    this.stats.history = this.calcAttendanceHistory(associates,timePeriod);
+    console.log(this.stats.history);
+    console.log(`Time to get stats: ${Date.now() - start} ms`);
     return this.stats;
+  }
+
+  /**
+   * Computes the attendance history for the given associates for the specified time period:
+   *  - today: no history
+   *  - this week: daily attendance over the past week (skip Saturday/Sunday)
+   *  - this month: weekly attendance over the past month (last 4 weeks)
+   *  - this year: monthly attendance over the past year (last 12 months)
+   * @param associates 
+   * @param timePeriod 
+   */
+  private calcAttendanceHistory(associates: Associate[], timePeriod: string): {data: number[], labels: string[]} {
+    let history: {data: number[], labels: string[]} = {
+      data: [],
+      labels: []
+    };
+    if (timePeriod == this.ds.timePeriodOpts.today) {} // no history
+    else if (timePeriod == this.ds.timePeriodOpts.week) {
+      let today = this.ds.dates.today;
+      let weekAgo = this.ds.addDays(today,-6);
+      for (let i=0;i <= this.ds.getDayDiff(weekAgo, today); i++) {
+        let date = this.ds.addDays(weekAgo, i);
+        if (date.getDay() == 0 || date.getDay() == 6) continue; // skip Sundays and Saturdays
+        let str = this.ds.getDateString(date);
+        let absent = 0, present = 0;
+        for (let assoc of associates) {
+          if (assoc.attendance[str]) present++;
+          else absent++;
+        }
+        history.data.push(Number((present * 100 / ( present + absent )).toFixed(2)));
+        history.labels.push(this.ds.getDayOfWeekStr(date));
+      }
+    }
+    else if (timePeriod == this.ds.timePeriodOpts.month) {
+      let today = this.ds.dates.today;
+      let start = this.ds.goBackFourWeeks(this.ds.dates.monday); // start 4 weeks back from this monday
+      for (let j=0;j < 4; j++) { // iterate over weeks
+        let weekStart = this.ds.addDays(start,j*7); // get each week's monday
+        let weekEnd = this.ds.getFriday(weekStart); // each week's friday
+        // initialize weekly numbers
+        let weekTotAbsent = 0, weekTotPresent = 0;
+        for (let i=0;i <= this.ds.getDayDiff(weekStart, weekEnd); i++) { // iterate over days
+          let date = this.ds.addDays(weekStart, i);
+          // if (date.getDay() == 0 || date.getDay() == 6) continue; // skip Sundays and Saturdays - not needed
+          let str = this.ds.getDateString(date);
+          for (let assoc of associates) {
+            if (assoc.attendance[str]) weekTotPresent++;
+            else weekTotAbsent++;
+          }
+        }
+        history.data.push(Number((weekTotPresent * 100 / ( weekTotPresent + weekTotAbsent )).toFixed(2)));
+        history.labels.push(`${weekStart.getMonth()+1}/${weekStart.getDate()} - ${weekEnd.getMonth()+1}/${weekEnd.getDate()}`);
+      }
+    }
+    else if (timePeriod == this.ds.timePeriodOpts.qtr) {
+      
+    }
+    else if (timePeriod == this.ds.timePeriodOpts.yr) {
+      
+    }
+    return history;
   }
 
 }

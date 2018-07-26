@@ -15,7 +15,7 @@ export class AssociateFilterService {
    *   - this year: start date was before last day of the year OR end date is after first day of the year
    */
   filterAssociates(associates: Associate[],timePeriod: string): Associate[] {
-    let now = new Date();
+    const now = new Date();
     let monday = this.ds.getMonday(now);
     let friday = this.ds.getFriday(now);
     let som = this.ds.getMonthStart(now); // set to start of month
@@ -24,7 +24,7 @@ export class AssociateFilterService {
     let eoq = this.ds.getMonthEnd(now); // set to end of month
     let soy = new Date(now.getFullYear(),0,1); // set to Jan 1 - start of year
     let eoy = new Date(now.getFullYear(),11,31); // set to Dec 31 - end of year
-    if (timePeriod == this.ds.timePeriodOpts.today) { 
+    if (timePeriod == this.ds.timePeriodOpts.today) {
       return associates.filter((assoc) => {
         return new Date(assoc.stagingStartDate) < now && new Date(assoc.stagingEndDate) > now;
       });
@@ -45,7 +45,6 @@ export class AssociateFilterService {
         return new Date(assoc.stagingStartDate) < eoy && new Date(assoc.stagingEndDate) > soy;
       });
     }
-    console.log(`Time to filter associates: ${Date.now() - now.getTime()} ms`);
     return associates;
   }
 

@@ -12,8 +12,8 @@ export class StatsService {
 
   /**
    * add in the individual associate attendance for the given time period.
-   * @param assoc 
-   * @param timePeriod 
+   * @param assoc
+   * @param timePeriod
    */
   private addSingleAssocAttendance(assoc: Associate, timePeriod: string) {
     let startOfPeriod, endOfPeriod;
@@ -47,8 +47,8 @@ export class StatsService {
 
   /**
    * Returns the statistics object calculated for the given associates over given time period
-   * @param associates 
-   * @param timePeriod 
+   * @param associates
+   * @param timePeriod
    */
   calcStatistics(associates: Associate[], timePeriod: string): Stats {
     let start = Date.now();
@@ -81,7 +81,9 @@ export class StatsService {
     this.stats.avgDaysMkToProjStart = +(totDaysMkToProjStart / totAssociates).toFixed(2);
     this.stats.avgInterviews = +(totInts / totAssociates).toFixed(2);
     this.stats.avgRepanels = +(totRepanels / totAssociates).toFixed(2);
+    const now = Date.now();
     this.stats.history = this.calcAttendanceHistory(associates,timePeriod);
+    console.log(`Time to calculate attendance history: ${Date.now() - now} ms`);
     console.log(this.stats.history);
     console.log(`Time to get stats: ${Date.now() - start} ms`);
     return this.stats;
@@ -92,18 +94,19 @@ export class StatsService {
    *  - today: no history
    *  - this week: daily attendance over the past week (skip Saturday/Sunday)
    *  - this month: weekly attendance over the past month (last 4 weeks)
+   *  - this quarter: weekly attendance for the current quarter
    *  - this year: monthly attendance over the past year (last 12 months)
-   * @param associates 
-   * @param timePeriod 
+   * @param associates
+   * @param timePeriod
    */
   private calcAttendanceHistory(associates: Associate[], timePeriod: string): {data: number[], labels: string[]} {
     let history: {data: number[], labels: string[]} = {
       data: [],
       labels: []
     };
+    let today = this.ds.dates.today;
     if (timePeriod == this.ds.timePeriodOpts.today) {} // no history
     else if (timePeriod == this.ds.timePeriodOpts.week) {
-      let today = this.ds.dates.today;
       let weekAgo = this.ds.addDays(today,-6);
       for (let i=0;i <= this.ds.getDayDiff(weekAgo, today); i++) {
         let date = this.ds.addDays(weekAgo, i);
@@ -119,7 +122,6 @@ export class StatsService {
       }
     }
     else if (timePeriod == this.ds.timePeriodOpts.month) {
-      let today = this.ds.dates.today;
       let start = this.ds.goBackFourWeeks(this.ds.dates.monday); // start 4 weeks back from this monday
       for (let j=0;j < 4; j++) { // iterate over weeks
         let weekStart = this.ds.addDays(start,j*7); // get each week's monday
@@ -140,11 +142,49 @@ export class StatsService {
       }
     }
     else if (timePeriod == this.ds.timePeriodOpts.qtr) {
-      
+      let start = this.ds.getQuarterStart(today); // start at beginning of current quarter
+      const numDays = this.ds.getDayDiff(start,today);
+      let weekTotAbsent = 0, weekTotPresent = 0; // initialize weekly numbers
+      for (let j=0;j <= numDays; j++) { // iterate over all days
+        let date = this.ds.addDays(start, j);
+        if (date.getDay() == 0 || date.getDay() == 6) continue;
+        let str = this.ds.getDateString(date);
+        for (let assoc of associates) {
+          if (assoc.attendance[str]) weekTotPresent++;
+          else weekTotAbsent++;
+        }
+        if (date.getDay() == 5 || j == numDays) { // reset totals and push week stats when we get to Fridays or end of loop
+          const percentAttend = Number((weekTotPresent * 100 / ( weekTotPresent + weekTotAbsent )).toFixed(2));
+          weekTotAbsent = weekTotPresent = 0;
+          const weekStart = this.ds.getMonday(date);
+          const weekEnd = this.ds.getFriday(date);
+          history.data.push(percentAttend);
+          history.labels.push(`${weekStart.getMonth()+1}/${weekStart.getDate()} - ${weekEnd.getMonth()+1}/${weekEnd.getDate()}`);
+        }
+      }
     }
     else if (timePeriod == this.ds.timePeriodOpts.yr) {
-      
+      let start = this.ds.dates.soy; // start at beginning of current year
+      const numDays = this.ds.getDayDiff(start,today);
+      let monthTotAbsent = 0, monthTotPresent = 0; // initialize weekly numbers
+      for (let j=0;j <= numDays; j++) { // iterate over all days
+        let date = this.ds.addDays(start, j);
+        if (date.getDay() == 0 || date.getDay() == 6) continue;
+        let str = this.ds.getDateString(date);
+        for (let assoc of associates) {
+          if (assoc.attendance[str]) monthTotPresent++;
+          else monthTotAbsent++;
+        }
+        if (this.ds.isLastDayOfMonth(date) || j == numDays) { // reset totals and push week stats when we get to Fridays or end of loop
+          const percentAttend = Number((monthTotPresent * 100 / ( monthTotPresent + monthTotAbsent )).toFixed(2));
+          monthTotAbsent = monthTotPresent = 0;
+          history.data.push(percentAttend);
+          history.labels.push(`${this.ds.getMonthString(date)}`);
+        }
+      }
     }
+    history.data.reverse();
+    history.labels.reverse();
     return history;
   }
 

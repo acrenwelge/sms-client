@@ -90,9 +90,9 @@ module.exports = () => {
     let dateinterval = (i+1) % 5 + 1; // 5 day max interval
     let date1 = addDays(beginningDate, i); // add i days to beginning date
     let date2 = addDays(date1, dateinterval); // increment by the set interval
-    let date3 = addDays(date1, dateinterval*2);
-    let date4 = addDays(date1, dateinterval*3); 
-    let date5 = addDays(date1, dateinterval*4); 
+    let date3 = Math.random() > 0.5? addDays(date1, dateinterval*2) : null;
+    let date4 = addDays(date1, dateinterval*3);
+    let date5 = addDays(date1, dateinterval*4);
     let assoc = {
       selected: false,
       id: i+1,

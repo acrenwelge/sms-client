@@ -10,17 +10,17 @@
       <div>
         <h3>Statistics</h3>
         <p>
-          Statistics are broken down by <strong>attendance</strong>, 
-          average <strong>time for each associate status</strong>, 
+          Statistics are broken down by <strong>attendance</strong>,
+          average <strong>time for each associate status</strong>,
           and average numbers of <strong>interviews and repanels</strong>.
         </p>
         <p>
-          Selecting a time period below will <strong>filter all data</strong> for associates 
+          Selecting a time period below will <strong>filter all data</strong> for associates
           who <strong>were in staging for at least a day during the time period</strong>:
         </p>
         <div class="my-2">
           <mat-button-toggle-group value="today" (change)="timePeriodChange($event)">
-            <mat-button-toggle [value]="timePeriodOpts.today">Today</mat-button-toggle>
+            <mat-button-toggle [checked]=true [value]="timePeriodOpts.today">Today</mat-button-toggle>
             <mat-button-toggle [value]="timePeriodOpts.week">This week</mat-button-toggle>
             <mat-button-toggle [value]="timePeriodOpts.month">This month</mat-button-toggle>
             <mat-button-toggle [value]="timePeriodOpts.qtr">This quarter</mat-button-toggle>
@@ -63,7 +63,7 @@
               <li><strong>Average time in staging: </strong>{{stats?.avgDaysInStaging}} days</li>
               <li><strong>Average time from marketing to confirmation: </strong>{{stats?.avgDaysMkToConf}} days</li>
               <li><strong>Average time from marketing to project start date: </strong>{{stats?.avgDaysMkToProjStart}} days</li>
-            </ul>        
+            </ul>
           </div>
           <div class="col-lg-6">
             <app-chart
@@ -81,7 +81,7 @@
             <ul>
               <li><strong>Average number of interviews:&ensp;</strong>{{stats?.avgInterviews | number:'1.1-2'}} interviews</li>
               <li><strong>Average number of repanels:&ensp;</strong>{{stats?.avgRepanels | number:'1.1-2'}} repanels</li>
-            </ul>        
+            </ul>
           </div>
           <div class="col-lg-6">
             <app-chart
@@ -140,9 +140,9 @@
             </tr>
           </tbody>
         </table>
-  
+
         <div *ngIf="associates">
-          <app-associate-table 
+          <app-associate-table
             [associates]="filteredAssociates"
             [displayedColNames]="['name', 'attendance', 'batchName','startMarketing', 'startStaging', 'confirmation', 'projectStart', 'stagingEnd','interviews', 'repanels', 'client']"
           ></app-associate-table>

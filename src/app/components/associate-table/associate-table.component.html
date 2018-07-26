@@ -25,17 +25,22 @@
       <mat-header-cell *matHeaderCellDef mat-sort-header> No. </mat-header-cell>
       <mat-cell *matCellDef="let assoc">{{assoc.id}}</mat-cell>
     </ng-container>
-  
+
     <!-- Name Column -->
     <ng-container matColumnDef="name">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
       <mat-cell *matCellDef="let assoc"><a routerLink="/associates/{{assoc.id}}">{{assoc.firstName}} {{assoc.lastName}}</a></mat-cell>
     </ng-container>
-  
+
     <!-- Attendance Column -->
     <ng-container matColumnDef="attendance">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Attendance </mat-header-cell>
-      <mat-cell *matCellDef="let assoc"> {{assoc.attendance[todayDateString]}} </mat-cell>
+      <mat-cell *matCellDef="let assoc">
+        <span *ngIf="assoc.attendance[todayDateString]; else elseBlock" class="text-success">Present</span></mat-cell>
+        <ng-template #elseBlock>
+          <mat-cell><span class="text-danger">Absent</span></mat-cell>
+        </ng-template>
+      <!-- <mat-cell *matCellDef="let assoc">{{assoc.attendance[todayDateString]}}</mat-cell> -->
     </ng-container>
 
     <!-- Batch name column -->
@@ -44,13 +49,13 @@
       <mat-cell *matCellDef="let assoc"> {{assoc.batch?.name}} </mat-cell>
     </ng-container>
 
-    <!-- Start Marketing Column --> 
+    <!-- Start Marketing Column -->
     <ng-container matColumnDef="startMarketing">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Marketing Start </mat-header-cell>
       <mat-cell *matCellDef="let assoc"> {{assoc.marketingStartDate | date:'shortDate'}} </mat-cell>
     </ng-container>
 
-    <!-- Start Staging Column --> 
+    <!-- Start Staging Column -->
     <ng-container matColumnDef="startStaging">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Staging Start </mat-header-cell>
       <mat-cell *matCellDef="let assoc"> {{assoc.stagingStartDate | date:'shortDate'}} </mat-cell>
@@ -91,7 +96,7 @@
       <mat-header-cell *matHeaderCellDef mat-sort-header> Client Name </mat-header-cell>
       <mat-cell *matCellDef="let assoc"> {{assoc.clientName}} </mat-cell>
     </ng-container>
-    
+
     <mat-header-row *matHeaderRowDef="displayedColNames"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColNames;"></mat-row>
   </mat-table>

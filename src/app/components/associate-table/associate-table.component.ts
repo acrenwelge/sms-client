@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, Input, ViewChild } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Input, ViewChild, ChangeDetectorRef } from '@angular/core';
 import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
 import { MatTable } from '@angular/material';
 import { SelectionModel } from '@angular/cdk/collections';
@@ -24,7 +24,10 @@ export class AssociateTableComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor() { }
+  constructor(private cdr: ChangeDetectorRef) { }
+  refresh() {
+    this.dataSource.data = this.associates;
+  }
   ngOnInit() {
     const now = new Date();
     this.todayDateString = `${now.getMonth()+1}/${now.getDate()}/${now.getFullYear()}`;
@@ -64,7 +67,7 @@ export class AssociateTableComponent implements OnInit {
     if (inStaging) {
       // filtering to get all associates currently in staging
       return assocs.filter((associate, index) => {
-        return (!!associate.stagingStartDate && !associate.stagingEndDate); 
+        return (!!associate.stagingStartDate && !associate.stagingEndDate);
         // return only associates WITH a staging start date but WITHOUT a staging end date
       });
     } else {

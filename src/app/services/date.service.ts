@@ -33,15 +33,13 @@ export class DateService {
   constructor() { }
 
   getDayOfWeekStr(d: Date): string {
-    switch (d.getDay()) {
-      case 0: return 'Sunday';
-      case 1: return 'Monday';
-      case 2: return 'Tuesday';
-      case 3: return 'Wednesday';
-      case 4: return 'Thursday';
-      case 5: return 'Friday';
-      case 6: return 'Saturday';
-    }
+    const weekArr = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
+    return weekArr[d.getDay()];
+  }
+
+  getMonthString(d: Date): string {
+    const monthArr = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+    return monthArr[d.getMonth()];
   }
 
   /**
@@ -137,6 +135,14 @@ export class DateService {
   getMonthEnd(d: Date) {
     d = new Date(d);
     return new Date(d.getFullYear(),d.getMonth()+1,0);
+  }
+
+  /**
+   * Checks whether the input date is the last day of the month
+   * @param d - the date to check
+   */
+  isLastDayOfMonth(d) {
+    return new Date(d.getTime() + 86400000).getDate() === 1;
   }
 
   /**
